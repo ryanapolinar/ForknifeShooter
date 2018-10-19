@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour {
 
         Vector2 tempVect = new Vector2(h, v);
         tempVect = tempVect.normalized * speed * Time.deltaTime;
-        transform.Translate(tempVect);
-        //rb.MovePosition(rb.position + (tempVect * speed) * Time.deltaTime);
+        //transform.Translate(tempVect);
+        rb.MovePosition(rb.position + (tempVect * speed) * Time.deltaTime);
     }
 }
