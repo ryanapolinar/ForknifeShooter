@@ -114,7 +114,6 @@ public class PlayerController : MonoBehaviour {
             CreateProjectile(xSpeed, ySpeed);
         }
         
-<<<<<<< HEAD
         //rigidbody
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
@@ -123,7 +122,6 @@ public class PlayerController : MonoBehaviour {
         tempVect = tempVect.normalized * speed * Time.deltaTime;
         //transform.Translate(tempVect);
         rb.MovePosition(rb.position + (tempVect * speed) * Time.deltaTime);
-=======
     }
 
     void CreateProjectile (float xSpeed, float ySpeed)
@@ -133,6 +131,5 @@ public class PlayerController : MonoBehaviour {
         newProjectile.setSpeed(xSpeed, ySpeed);
 
         fireCooldown = fireCooldownMax;
->>>>>>> da5c33ded080c0b7b7597bd20a5eafdbd6149823
     }
 }
