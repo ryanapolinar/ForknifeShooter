@@ -34,6 +34,14 @@ public class Projectile : MonoBehaviour {
         ySpeed = newYSpeed;
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Wall")
+        {
+            Destroy(gameObject);
+        }
+    }
+
     public void OnBecameInvisible()
     {
         Destroy(gameObject);
