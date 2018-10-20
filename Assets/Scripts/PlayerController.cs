@@ -80,6 +80,20 @@ public class PlayerController : MonoBehaviour {
             fireCooldown = 0.0f;
         }
 
+        // FIRE PROJECTILES WITH THE MOUSE
+        // Get the mouse click input
+        bool mouseInput = Input.GetMouseButton(0) && fireCooldown <= 0.0f;
+        if (mouseInput) {
+            Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 mouseWorldPosition2d = new Vector2(mouseWorldPosition.x, mouseWorldPosition.y);
+            Vector2 playerPosition = new Vector2(this.transform.position.x, this.transform.position.y);
+            Vector2 direction = (mouseWorldPosition2d - playerPosition);
+
+            CreateProjectile(direction.x, direction.y);
+        }
+
+
+        // FIRE PROJECTILES WITH THE ARROW KEYS
         // Get the firing inputs, making sure they use the arrow keys
         bool fireUpInput = Input.GetKey(KeyCode.UpArrow) && fireCooldown <= 0.0f;
         bool fireRightInput = Input.GetKey(KeyCode.RightArrow) && fireCooldown <= 0.0f;
@@ -113,17 +127,6 @@ public class PlayerController : MonoBehaviour {
             xSpeed = -1f;
             CreateProjectile(xSpeed, ySpeed);
         }
-        
-<<<<<<< HEAD
-        //rigidbody
-        float h = Input.GetAxisRaw("Horizontal");
-        float v = Input.GetAxisRaw("Vertical");
-
-        Vector2 tempVect = new Vector2(h, v);
-        tempVect = tempVect.normalized * speed * Time.deltaTime;
-        //transform.Translate(tempVect);
-        rb.MovePosition(rb.position + (tempVect * speed) * Time.deltaTime);
-=======
     }
 
     void CreateProjectile (float xSpeed, float ySpeed)
@@ -133,6 +136,5 @@ public class PlayerController : MonoBehaviour {
         newProjectile.setSpeed(xSpeed, ySpeed);
 
         fireCooldown = fireCooldownMax;
->>>>>>> da5c33ded080c0b7b7597bd20a5eafdbd6149823
     }
 }

@@ -34,5 +34,9 @@ public class Projectile : MonoBehaviour {
         ySpeed = newYSpeed;
     }
 
-    
+    public void OnBecameInvisible()
+    {
+        Destroy(gameObject);
+    }
+
 }
