@@ -4892,6 +4892,7 @@ GameObject:
   - component: {fileID: 1812663601}
   - component: {fileID: 1812663600}
   - component: {fileID: 1812663599}
+  - component: {fileID: 1812663602}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -4915,7 +4916,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.2830189, g: 0.2830189, b: 0.2830189, a: 0}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
@@ -4959,6 +4960,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1812663602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1812663598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a160d838ff8b4b4693ac20007e008c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AssetsPPU: 32
+  m_RefResolutionX: 320
+  m_RefResolutionY: 180
+  m_UpscaleRT: 0
+  m_PixelSnapping: 1
+  m_CropFrameX: 0
+  m_CropFrameY: 0
+  m_StretchFill: 0
 --- !u!1001 &1813243557
 Prefab:
   m_ObjectHideFlags: 0
@@ -5109,11 +5129,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4113540258392886, guid: 2fe5d4f9d9eeb924ea4e739e9fc1cf04, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 1.0535774
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4113540258392886, guid: 2fe5d4f9d9eeb924ea4e739e9fc1cf04, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.0328207
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4113540258392886, guid: 2fe5d4f9d9eeb924ea4e739e9fc1cf04, type: 2}
       propertyPath: m_LocalPosition.z
