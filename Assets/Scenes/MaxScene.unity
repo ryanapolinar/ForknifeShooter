@@ -5194,7 +5194,7 @@ Prefab:
     - target: {fileID: 61373657650576340, guid: 2fe5d4f9d9eeb924ea4e739e9fc1cf04,
         type: 2}
       propertyPath: m_Size.x
-      value: 0.18482208
+      value: 0.17
       objectReference: {fileID: 0}
     - target: {fileID: 61373657650576340, guid: 2fe5d4f9d9eeb924ea4e739e9fc1cf04,
         type: 2}
@@ -5204,7 +5204,7 @@ Prefab:
     - target: {fileID: 61373657650576340, guid: 2fe5d4f9d9eeb924ea4e739e9fc1cf04,
         type: 2}
       propertyPath: m_Size.y
-      value: 0.18354869
+      value: 0.17
       objectReference: {fileID: 0}
     - target: {fileID: 1874670933515876, guid: 2fe5d4f9d9eeb924ea4e739e9fc1cf04, type: 2}
       propertyPath: m_Layer

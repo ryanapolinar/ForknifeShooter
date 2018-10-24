@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Follow : MonoBehaviour {
-    /*
+ /*
     public GameObject player;
     private Vector3 offset;
     // Use this for initialization
@@ -49,4 +49,4 @@ public class Follow : MonoBehaviour {
         }
     }
 }
-//*/
+   //*/
