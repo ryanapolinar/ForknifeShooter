@@ -36,9 +36,17 @@ public class Projectile : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Wall")
+        switch (collision.tag)
         {
-            Destroy(gameObject);
+            case "Wall":
+                Destroy(gameObject);
+                break;
+            case "Enemy":
+                Enemy enemy = collision.gameObject.GetComponent<Enemy>();
+                enemy.Damage(1);
+                Debug.Log(enemy.getHealth());
+                Destroy(gameObject);
+                break;
         }
     }
 

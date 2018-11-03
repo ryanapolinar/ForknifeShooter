@@ -4,34 +4,18 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
-    // PLAYER FIELDS
-    public float speed = 7f;
-    float fireCooldown;
-    public float fireCooldownMax = 1f;
+    // PLAYERCONTROLLER FIELDS
     Vector2 movementVelocity;
 
-    // COMPONENTS
-    Rigidbody2D rb;
-    public Projectile projectile;
+    // PLAYERCONTROLLER COMPONENTS
 
+    Rigidbody2D rb;
+    
 	/*
      * Use start to initialize variables
      */
-	void Start () {
+	void Start () { 
         rb = GetComponent<Rigidbody2D>();
-        fireCooldown = fireCooldownMax;
-    }
-	
-	/*
-     * Use Update to update variables and inputs
-     */
-	void Update () {
-
-        // MOVEMENT
-        GetMovementVelocity();
-
-        // FIRING
-        GetProjectileInput();
     }
 
     /*
@@ -43,7 +27,10 @@ public class PlayerController : MonoBehaviour {
         rb.MovePosition(rb.position + movementVelocity * Time.deltaTime);
     }
 
-    void GetMovementVelocity ()
+    /**
+     * Gets the movement velocity of the player and stores it in movementVelocity
+     */
+    public void GetMovementVelocity (float speed)
     {
         // MOVEMENT
         // Get the movement inputs, making sure they are using WASD
@@ -71,7 +58,12 @@ public class PlayerController : MonoBehaviour {
         movementVelocity = movementVelocity.normalized * speed;
     }
 
-    void GetProjectileInput ()
+    /**
+     * Gets input from the user to create projectiles and makes them.
+     * 
+     * Returns the current projectile cooldown
+     */
+    public float GetProjectileInput (Projectile projectile, float fireCooldown, float fireCooldownMax)
     {
         // Reduce the fireCooldown
         fireCooldown -= Time.deltaTime;
@@ -89,7 +81,8 @@ public class PlayerController : MonoBehaviour {
             Vector2 playerPosition = new Vector2(this.transform.position.x, this.transform.position.y);
             Vector2 direction = (mouseWorldPosition2d - playerPosition);
 
-            CreateProjectile(direction.x, direction.y);
+            CreateProjectile(projectile, direction.x, direction.y);
+            fireCooldown = fireCooldownMax;
         }
 
 
@@ -107,34 +100,38 @@ public class PlayerController : MonoBehaviour {
         {
             // FIRE UP
             ySpeed = 1f;
-            CreateProjectile(xSpeed, ySpeed);
+            CreateProjectile(projectile, xSpeed, ySpeed);
+            fireCooldown = fireCooldownMax;
         }
         else if (fireRightInput)
         {
             // FIRE RIGHT
             xSpeed = 1f;
-            CreateProjectile(xSpeed, ySpeed);
+            CreateProjectile(projectile, xSpeed, ySpeed);
+            fireCooldown = fireCooldownMax;
         }
         else if (fireDownInput)
         {
             // FIRE DOWN
             ySpeed = -1f;
-            CreateProjectile(xSpeed, ySpeed);
+            CreateProjectile(projectile, xSpeed, ySpeed);
+            fireCooldown = fireCooldownMax;
         }
         else if (fireLeftInput)
         {
             // FIRE LEFT
             xSpeed = -1f;
-            CreateProjectile(xSpeed, ySpeed);
+            CreateProjectile(projectile, xSpeed, ySpeed);
+            fireCooldown = fireCooldownMax;
         }
+
+        return fireCooldown;
     }
 
-    void CreateProjectile (float xSpeed, float ySpeed)
+    void CreateProjectile (Projectile projectile, float xSpeed, float ySpeed)
     {
         Projectile newProjectile = Instantiate(projectile);
         newProjectile.transform.position = this.transform.position;
         newProjectile.setSpeed(xSpeed, ySpeed);
-
-        fireCooldown = fireCooldownMax;
     }
 }
