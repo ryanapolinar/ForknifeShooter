@@ -44,7 +44,6 @@ public class Projectile : MonoBehaviour {
             case "Enemy":
                 Enemy enemy = collision.gameObject.GetComponent<Enemy>();
                 enemy.Damage(1);
-                Debug.Log(enemy.getHealth());
                 Destroy(gameObject);
                 break;
         }
