@@ -8,13 +8,14 @@ public class PlayerController : MonoBehaviour {
     Vector2 movementVelocity;
 
     // PLAYERCONTROLLER COMPONENTS
-
+    SpriteRenderer renderer;
     Rigidbody2D rb;
     
 	/*
      * Use start to initialize variables
      */
-	void Start () { 
+	void Start () {
+        renderer = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -37,10 +38,12 @@ public class PlayerController : MonoBehaviour {
         float horizontalInput = 0;
         if (Input.GetKey(KeyCode.A))
         {
+            renderer.flipX = true;
             horizontalInput = -1;
         }
         else if (Input.GetKey(KeyCode.D))
         {
+            renderer.flipX = false;
             horizontalInput = 1;
         }
         float verticalInput = 0;
