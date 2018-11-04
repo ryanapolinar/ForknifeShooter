@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : Unit {
 
@@ -10,7 +11,10 @@ public class Player : Unit {
 
     // COMPONENTS
     PlayerController playerController;
+
+    // GAMEOBJECTS
     public Projectile projectile;
+    public Text healthText;
 
     // Use this for initialization
     void Start () {
@@ -25,5 +29,8 @@ public class Player : Unit {
 
         // FIRING
         fireCooldown = playerController.GetProjectileInput(projectile, fireCooldown, fireCooldownMax);
+
+        // UI UPDATING
+        healthText.text = "Lives: " + this.getHealth();
 	}
 }
