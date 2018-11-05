@@ -7,9 +7,6 @@ public class Enemy : Unit {
 
     Rigidbody2D rb;
 
-    public GameObject healthBar;
-    
-
 	void Start () {
         rb = GetComponent<Rigidbody2D>();      
     }
@@ -18,18 +15,5 @@ public class Enemy : Unit {
 	void Update () {
         
 	}
-
-    public Vector3 GetWorldToScreenPoint()
-    {
-        Vector3 enemyScreenPosition = Camera.main.WorldToScreenPoint(rb.position);
-        return enemyScreenPosition;
-    }
-
-    public GameObject CreateHealthBar()
-    {
-        GameObject hb = Instantiate(healthBar, transform);
-        hb.GetComponent<Slider>().maxValue = this.getMaxHealth();
-        return hb;
-    }
     
 }
