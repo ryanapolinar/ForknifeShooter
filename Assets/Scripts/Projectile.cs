@@ -8,6 +8,7 @@ public class Projectile : MonoBehaviour {
     float ySpeed = 0f;
     public float totalSpeed = 20f;
     Vector2 movementVelocity;
+    private int damage = 1;
 
     // COMPONENTS
     Rigidbody2D rb;
@@ -25,13 +26,33 @@ public class Projectile : MonoBehaviour {
 
     void FixedUpdate()
     {
-        rb.MovePosition(rb.position + movementVelocity * Time.deltaTime);
+        rb.MovePosition(rb.position + this.movementVelocity * Time.deltaTime);
+    }
+
+    public float getXSpeed()
+    {
+        return this.xSpeed;
+    }
+
+    public float getYSpeed()
+    {
+        return this.ySpeed;
     }
 
     public void setSpeed (float newXSpeed, float newYSpeed)
     {
-        xSpeed = newXSpeed;
-        ySpeed = newYSpeed;
+        this.xSpeed = newXSpeed;
+        this.ySpeed = newYSpeed;
+    }
+
+    public int getDamage()
+    {
+        return this.damage;
+    }
+
+    public void setDamage(int newDamage)
+    {
+        this.damage = newDamage;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -43,7 +64,7 @@ public class Projectile : MonoBehaviour {
                 break;
             case "Enemy":
                 Enemy enemy = collision.gameObject.GetComponent<Enemy>();
-                enemy.Damage(1);
+                enemy.Damage(this.damage);
                 Destroy(gameObject);
                 break;
         }

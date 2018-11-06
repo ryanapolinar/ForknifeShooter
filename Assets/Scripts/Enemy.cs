@@ -7,7 +7,7 @@ public class Enemy : Unit {
 
     Rigidbody2D rb;
 
-	void Start () {
+    void Start () {
         rb = GetComponent<Rigidbody2D>();      
     }
 	
@@ -15,5 +15,25 @@ public class Enemy : Unit {
 	void Update () {
         
 	}
-    
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        switch (collision.tag)
+        {
+            case "Player":
+                // Damage the player
+                Player player = collision.gameObject.GetComponent<Player>();
+                if (player.getInvincibility() <= 0)
+                {
+                    player.Damage(this.damage);
+
+                    // Activate player's invincibility frames
+                    player.setInvincibility(player.getInvincibilityFrameMax());
+                    
+                }
+
+                break;
+        }
+    }
+
 }

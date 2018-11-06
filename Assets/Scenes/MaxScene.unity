@@ -1007,7 +1007,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &677159493 stripped
 Transform:
@@ -1204,7 +1204,7 @@ Transform:
   - {fileID: 31109656}
   - {fileID: 1331579994}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &736200562 stripped
 Transform:
@@ -2029,52 +2029,6 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d71e59eb036f0b9448971d30e0922c87, type: 2}
-  m_IsPrefabAsset: 0
---- !u!1001 &1279155679
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4802823502845412, guid: c804a4bef6b19004c8068d46aca49da6, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4802823502845412, guid: c804a4bef6b19004c8068d46aca49da6, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4802823502845412, guid: c804a4bef6b19004c8068d46aca49da6, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4802823502845412, guid: c804a4bef6b19004c8068d46aca49da6, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4802823502845412, guid: c804a4bef6b19004c8068d46aca49da6, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4802823502845412, guid: c804a4bef6b19004c8068d46aca49da6, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4802823502845412, guid: c804a4bef6b19004c8068d46aca49da6, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4802823502845412, guid: c804a4bef6b19004c8068d46aca49da6, type: 2}
-      propertyPath: m_RootOrder
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1278073189790754, guid: c804a4bef6b19004c8068d46aca49da6, type: 2}
-      propertyPath: m_Name
-      value: Enemy (3)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: c804a4bef6b19004c8068d46aca49da6, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1001 &1298976501
 Prefab:
