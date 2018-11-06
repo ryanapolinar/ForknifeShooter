@@ -83,6 +83,16 @@ public class PlayerController : MonoBehaviour {
             Vector2 playerPosition = new Vector2(this.transform.position.x, this.transform.position.y);
             Vector2 direction = (mouseWorldPosition2d - playerPosition);
 
+            // Change player sprite direction
+            if (direction.x > 0)
+            {
+                spriteRenderer.flipX = false;
+            } else
+            {
+                spriteRenderer.flipX = true;
+            }
+
+            // Fire the projectile
             CreateProjectile(projectile, direction.x, direction.y);
             fireCooldown = fireCooldownMax;
         }

@@ -30,8 +30,6 @@ public class Player : Unit {
         // UPDATE INVINCIBILITY
         if (invincibility > 0)
         {
-            // Fade while invincible
-            gameObject.GetComponent<SpriteRenderer>().color = Color.gray;
             invincibility--;
         } else
         {
@@ -48,6 +46,24 @@ public class Player : Unit {
         // UI UPDATING
         healthText.text = "Lives: " + this.getHealth();
 	}
+
+    public void Damage(int damage)
+    {
+        health -= damage;
+
+        // Activate player's invincibility frames
+        this.setInvincibility(this.invincibilityFrameMax);
+
+        // Fade while invincible
+        Color fadedColor = gameObject.GetComponent<SpriteRenderer>().color;
+        fadedColor.a = 0.5f;
+        gameObject.GetComponent<SpriteRenderer>().color = fadedColor;
+
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
 
     public int getInvincibility()
     {

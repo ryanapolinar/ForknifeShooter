@@ -26,12 +26,7 @@ public class Enemy : Unit {
                 if (player.getInvincibility() <= 0)
                 {
                     player.Damage(this.damage);
-
-                    // Activate player's invincibility frames
-                    player.setInvincibility(player.getInvincibilityFrameMax());
-                    
                 }
-
                 break;
         }
     }
