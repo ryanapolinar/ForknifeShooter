@@ -11,7 +11,7 @@ public class Unit : MonoBehaviour {
     protected const int DEFAULT_DAMAGE = 1;
     protected int damage;
 
-    public Unit()
+    virtual protected void Start()
     {
         maxHealth = DEFAULT_HEALTH;
         health = DEFAULT_HEALTH;
@@ -29,12 +29,32 @@ public class Unit : MonoBehaviour {
         return health;
     }
 
+    public void setHealth(int health)
+    {
+        this.health = health;
+    }
+
     public int getMaxHealth()
     {
         return maxHealth;
     }
 
-    public void Damage(int damage)
+    public void setMaxHealth(int maxHealth)
+    {
+        this.maxHealth = maxHealth;
+    }
+
+    public int getDamage()
+    {
+        return this.damage;
+    }
+
+    public void setDamage(int damage)
+    {
+        this.damage = damage;
+    }
+
+    virtual public void Damage(int damage)
     {
         health -= damage;
         if (health <= 0)

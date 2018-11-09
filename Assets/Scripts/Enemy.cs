@@ -5,10 +5,18 @@ using UnityEngine.UI;
 
 public class Enemy : Unit {
 
-    Rigidbody2D rb;
+    public const float DEFAULT_DETECTION_RADIUS = 4f;
+    float detectionRadius;
+    bool detected;
 
-    void Start () {
-        rb = GetComponent<Rigidbody2D>();      
+    protected Rigidbody2D rb;
+    
+
+    override protected void Start () {
+        base.Start();
+        rb = GetComponent<Rigidbody2D>();
+        this.detectionRadius = DEFAULT_DETECTION_RADIUS;
+        this.detected = false;
     }
 	
 	// Update is called once per frame
@@ -16,7 +24,7 @@ public class Enemy : Unit {
         
 	}
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    virtual protected void OnTriggerEnter2D(Collider2D collision)
     {
         switch (collision.tag)
         {
@@ -29,6 +37,28 @@ public class Enemy : Unit {
                 }
                 break;
         }
+    }
+
+    /**
+     * Returns a Vector2 of the distance to player, and updates if the player is detected
+     */
+    public Vector2 DirectionToPlayer()
+    {
+        GameObject player = GameObject.FindWithTag("Player");
+        Vector2 playerPosition2D = new Vector2(player.transform.position.x, player.transform.position.y);
+        Vector2 enemyPosition2D = new Vector2(this.transform.position.x, this.transform.position.y);
+        this.detected = Mathf.Abs(Vector2.Distance(playerPosition2D, enemyPosition2D)) <= this.detectionRadius;
+
+        return playerPosition2D - enemyPosition2D;
+    }
+
+    /**
+     * Returns true if the Player is detected
+     */
+    public bool PlayerDetected()
+    {
+        DirectionToPlayer();
+        return detected;
     }
 
 }

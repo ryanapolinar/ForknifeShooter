@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour {
      * Use start to initialize variables
      */
 	void Start () {
+
         spriteRenderer = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
     }

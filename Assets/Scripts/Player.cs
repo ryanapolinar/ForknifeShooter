@@ -20,7 +20,8 @@ public class Player : Unit {
     public Text healthText;
 
     // Use this for initialization
-    void Start () {
+    override protected void Start () {
+        base.Start();
         playerController = GetComponent<PlayerController>();
         fireCooldown = fireCooldownMax;
     }
@@ -47,9 +48,9 @@ public class Player : Unit {
         healthText.text = "Lives: " + this.getHealth();
 	}
 
-    public void Damage(int damage)
+    override public void Damage(int damage)
     {
-        health -= damage;
+        this.health -= damage;
 
         // Activate player's invincibility frames
         this.setInvincibility(this.invincibilityFrameMax);
