@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 071f7a094210b5840b3830c58a8702bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 3
   chaseCooldown: 0
   chaseCooldownMax: 60
 --- !u!212 &212390258465284138

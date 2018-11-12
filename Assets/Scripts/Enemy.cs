@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class Enemy : Unit {
 
-    public const float DEFAULT_DETECTION_RADIUS = 4f;
-    float detectionRadius;
+    public const float DEFAULT_DETECTION_RADIUS = 5f;
+    protected float detectionRadius;
     bool detected;
 
     protected Rigidbody2D rb;

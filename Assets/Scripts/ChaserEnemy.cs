@@ -32,8 +32,12 @@ public class ChaserEnemy : Enemy {
     override protected void OnTriggerEnter2D(Collider2D collision)
     {
         // Damage player and reset chaseCooldown
-        base.OnTriggerEnter2D(collision);
-        chaseCooldown = chaseCooldownMax;
+        
+        if (collision.tag == "Player")
+        {
+            base.OnTriggerEnter2D(collision);
+            chaseCooldown = chaseCooldownMax;
+        }
     }
 
     private void Chase()
