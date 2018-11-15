@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour {
     // PROJECTILE FIELDS
-    float xSpeed = 0f;
-    float ySpeed = 0f;
+    protected float xSpeed = 0f;
+    protected float ySpeed = 0f;
     public float totalSpeed = 20f;
-    Vector2 movementVelocity;
-    private int damage = 1;
+    protected Vector2 movementVelocity;
+    protected int damage = 1;
 
     // COMPONENTS
     Rigidbody2D rb;
 
-    void Start()
+    virtual protected void Start()
     {
         rb = GetComponent<Rigidbody2D>();
     }
@@ -55,7 +55,7 @@ public class Projectile : MonoBehaviour {
         this.damage = newDamage;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    virtual protected void OnTriggerEnter2D(Collider2D collision)
     {
         switch (collision.tag)
         {
