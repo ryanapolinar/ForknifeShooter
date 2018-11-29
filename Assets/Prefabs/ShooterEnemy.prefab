@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootCooldown: 0
-  shootCooldownMax: 180
+  shootCooldownMax: 60
   enemyProjectile: {fileID: 114223844680149872, guid: e06b0568f4a84754fbc6092b4a317416,
     type: 2}
 --- !u!212 &212782190042781322
