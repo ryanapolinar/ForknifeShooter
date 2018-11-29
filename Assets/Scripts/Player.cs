@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Player : Unit {
 
     public float speed = 7f;
     float fireCooldown;
     public float fireCooldownMax = 0.25f;
+    bool isDead = false;
 
     int invincibility = 0;
     int invincibilityFrameMax = 60;
@@ -38,19 +40,27 @@ public class Player : Unit {
             gameObject.GetComponent<SpriteRenderer>().color = Color.white;
         }
 
-        // MOVEMENT
-        playerController.GetMovementVelocity(speed);
+        if (!isDead)
+        {
+            // MOVEMENT
+            playerController.GetMovementVelocity(speed);
 
-        // FIRING
-        fireCooldown = playerController.GetProjectileInput(projectile, fireCooldown, fireCooldownMax);
+            // FIRING
+            fireCooldown = playerController.GetProjectileInput(projectile, fireCooldown, fireCooldownMax);
+        }
 
         // UI UPDATING
         healthText.text = "Lives: " + this.getHealth();
-	}
+
+    }
 
     override public void Damage(int damage)
     {
         this.health -= damage;
+        if (health < 0)
+        {
+            health = 0;
+        }
 
         // Activate player's invincibility frames
         this.setInvincibility(this.invincibilityFrameMax);
@@ -62,8 +72,16 @@ public class Player : Unit {
 
         if (health <= 0)
         {
-            Destroy(gameObject);
+            health = 0;
+            isDead = true;
+            StartCoroutine(GameOver());
         }
+    }
+
+    public IEnumerator GameOver()
+    {
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene("gameOver");
     }
 
     public int getInvincibility()

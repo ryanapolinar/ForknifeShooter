@@ -36,7 +36,7 @@ public class ShooterEnemy : Enemy
         if (this.PlayerDetected() && shootCooldown <= 0)
         {
             // Generate a vector from the enemy to the player
-            Vector2 randomizer = new Vector2(Random.Range(0.0f, 0.5f), Random.Range(0.0f, 0.5f));
+            Vector2 randomizer = new Vector2(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f));
             Vector2 projectileVector = (DirectionToPlayer() + randomizer).normalized * enemyProjectile.totalSpeed;
 
             // Create the enemy projectile

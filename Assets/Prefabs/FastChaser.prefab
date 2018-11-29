@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 212427000370703736}
   - component: {fileID: 50242891491114842}
   - component: {fileID: 61389987362462070}
-  - component: {fileID: 61997979547613712}
+  - component: {fileID: 61756692396146412}
   m_Layer: 0
   m_Name: FastChaser
   m_TagString: Enemy
@@ -89,7 +89,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!61 &61997979547613712
+--- !u!61 &61756692396146412
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 071f7a094210b5840b3830c58a8702bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 12
+  speed: 7
   chaseCooldown: 0
   chaseCooldownMax: 60
 --- !u!212 &212427000370703736
