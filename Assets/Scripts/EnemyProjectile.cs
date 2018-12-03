@@ -7,10 +7,10 @@ public class EnemyProjectile : Projectile {
 	// Use this for initialization
 	override protected void Start () {
         base.Start();
-        totalSpeed = 10f;
+        totalSpeed = 8f;
 	}
 
-    virtual protected void OnTriggerEnter2D(Collider2D collision)
+    override protected void OnTriggerEnter2D(Collider2D collision)
     {
         switch (collision.tag)
         {

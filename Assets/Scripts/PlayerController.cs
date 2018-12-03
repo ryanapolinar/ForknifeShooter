@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
     // PLAYERCONTROLLER FIELDS
-    Vector2 movementVelocity;
+    public Vector2 movementVelocity;
 
     // PLAYERCONTROLLER COMPONENTS
     public Sprite sprites;

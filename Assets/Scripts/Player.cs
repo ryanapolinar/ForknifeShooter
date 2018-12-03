@@ -12,7 +12,7 @@ public class Player : Unit {
     bool isDead = false;
 
     int invincibility = 0;
-    int invincibilityFrameMax = 60;
+    int invincibilityFrameMax = 180;
 
     // COMPONENTS
     PlayerController playerController;
@@ -72,6 +72,7 @@ public class Player : Unit {
 
         if (health <= 0)
         {
+            playerController.movementVelocity = new Vector2(0, 0);
             health = 0;
             isDead = true;
             StartCoroutine(GameOver());
