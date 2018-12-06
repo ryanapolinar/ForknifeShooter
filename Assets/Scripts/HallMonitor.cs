@@ -55,7 +55,6 @@ public class HallMonitor : Enemy {
                 Shoot();
             } else
             {
-                Debug.Log("TODO: activate invincibility!");
                 Shield();
             }
             
@@ -73,7 +72,6 @@ public class HallMonitor : Enemy {
                 Destroy(gameObject);
             }
         }
-        Debug.Log("HallMonitorHealth: " + health);
     }
 
     private void Shoot()
