@@ -12,7 +12,7 @@ public class Player : Unit {
     bool isDead = false;
 
     int invincibility = 0;
-    int invincibilityFrameMax = 180;
+    int invincibilityFrameMax = 120;
 
     // COMPONENTS
     PlayerController playerController;
@@ -56,7 +56,11 @@ public class Player : Unit {
 
     override public void Damage(int damage)
     {
-        this.health -= damage;
+        if (invincibility <= 0)
+        {
+            this.health -= damage;
+        }
+
         if (health < 0)
         {
             health = 0;
