@@ -57,6 +57,7 @@ public class Unit : MonoBehaviour {
     virtual public void Damage(int damage)
     {
         health -= damage;
+        Debug.Log("health: " + health);
         if (health <= 0)
         {
             Destroy(gameObject);

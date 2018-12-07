@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ChaserEnemy : Enemy {
 
-    public float speed = 2f;
+    public float speed = 3f;
     public int chaseCooldown = 0;
     public int chaseCooldownMax = 60;
     Vector2 movementVelocity;
