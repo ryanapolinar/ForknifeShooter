@@ -50,7 +50,7 @@ public class HallMonitor : Enemy {
         if (shootCooldown <= 0)
         {
             float action = Random.Range(0.0f, 1.0f);
-            if (action <= 0.6f)
+            if (action <= 0.75f)
             {
                 Shoot();
             } else
@@ -76,6 +76,8 @@ public class HallMonitor : Enemy {
 
     private void Shoot()
     {
+        invincibility = 0;
+
         // Generate a vector from the enemy to the player
         Vector2 randomizer = new Vector2(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f));
         Vector2 projectileVector = (DirectionToPlayer() + randomizer).normalized * enemyProjectile.totalSpeed;
