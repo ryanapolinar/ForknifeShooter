@@ -13,7 +13,7 @@ public class ShooterEnemy : Enemy
     protected override void Start()
     {
         base.Start();
-        detectionRadius = 10f;
+        detectionRadius = 12f;
     }
 
     private void Update()

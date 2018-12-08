@@ -12,6 +12,7 @@ public class ChaserEnemy : Enemy {
     protected override void Start()
     {
         base.Start();
+        health *= 2;
     }
 
     private void Update()
