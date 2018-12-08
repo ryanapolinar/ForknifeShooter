@@ -8,7 +8,7 @@ public class Projectile : MonoBehaviour {
     protected float ySpeed = 0f;
     public float totalSpeed = 20f;
     protected Vector2 movementVelocity;
-    protected int damage = 1;
+    protected int damage;
 
     // COMPONENTS
     Rigidbody2D rb;
@@ -16,6 +16,7 @@ public class Projectile : MonoBehaviour {
     virtual protected void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        damage = 1;
     }
 
     void Update()

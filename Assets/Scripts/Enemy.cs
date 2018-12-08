@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Enemy : Unit {
 
-    public const float DEFAULT_DETECTION_RADIUS = 15f;
+    public const float DEFAULT_DETECTION_RADIUS = 10f;
     protected float detectionRadius;
     bool detected;
 
