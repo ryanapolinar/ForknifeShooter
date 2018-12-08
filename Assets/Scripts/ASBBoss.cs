@@ -7,9 +7,13 @@ public class ASBBoss : Enemy
 
     public int shootCooldown = 0;
     public int shootCooldownMax = 10;
+    public int dashCooldown = 0;
+    public int dashCooldownMax = 180;
     public int generalCooldown = 0;
     public int generalCooldownMax = 180;
     public int numShot = 0;
+    public int randomNum;
+    Vector2 movementVelocity;
 
     public EnemyProjectile enemyProjectile;
 
@@ -28,18 +32,31 @@ public class ASBBoss : Enemy
         {
             shootCooldown--;
         }
+        // Update dashCooldown
+        if (dashCooldown > 0)
+        {
+            dashCooldown--;
+        }
 
-        // Update generalCooldown
-        //if (generalCooldown > 0)
-        //{
-        //    generalCooldown--;
-        //}
+        if (generalCooldown > 0)
+        {
+            generalCooldown--;
+        }
     }
 
     void FixedUpdate()
     {
         // SHOOT
+        randomNum = Random.Range(0, 2);
+        if (randomNum == 0 && generalCooldown <= 0)
+        {
             Shoot();
+        }
+
+        else if (randomNum != 0 && generalCooldown <= 0)
+        {
+            Dash();
+        }
     }
 
     private void Shoot()
@@ -68,4 +85,24 @@ public class ASBBoss : Enemy
         }
     }
 
+    private void Dash()
+    {
+        if (this.PlayerDetected() && dashCooldown <= 0)
+        {
+            this.movementVelocity = this.DirectionToPlayer().normalized * 40;
+            rb.MovePosition(rb.position + movementVelocity * Time.deltaTime);
+            
+        }
+    }
+
+    override protected void OnTriggerEnter2D(Collider2D collision)
+    {
+        // Damage player and reset chaseCooldown
+
+        if (collision.tag == "Player")
+        {
+            base.OnTriggerEnter2D(collision);
+            dashCooldown = dashCooldownMax;
+        }
+    }
 }
