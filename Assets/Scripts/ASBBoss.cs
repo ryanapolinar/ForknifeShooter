@@ -10,7 +10,7 @@ public class ASBBoss : Enemy
     public int dashCooldown = 0;
     public int dashCooldownMax = 180;
     public int generalCooldown = 0;
-    public int generalCooldownMax = 180;
+    public int generalCooldownMax = 300;
     public int numShot = 0;
     public float randomNum;
     private GameObject player;
@@ -53,11 +53,13 @@ public class ASBBoss : Enemy
         if (randomNum < 0.5f && generalCooldown <= 0)
         {
             Shoot();
+           //generalCooldown = generalCooldownMax; //makes the shot only shoot once
         }
 
         else if (randomNum >= 0.5f && generalCooldown <= 0)
         {
             Dash();
+            //generalCooldown = generalCooldownMax; //makes the dash stop early (short)
         }
     }
 
