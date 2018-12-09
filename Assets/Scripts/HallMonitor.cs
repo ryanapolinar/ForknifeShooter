@@ -16,6 +16,9 @@ public class HallMonitor : Enemy {
 
     public EnemyProjectile enemyProjectile;
 
+    public GameObject WallGrid;
+    public GameObject ContinueGrid;
+
     protected override void Start () {
         base.Start();
         health = 30;
@@ -69,9 +72,19 @@ public class HallMonitor : Enemy {
             health -= damage;
             if (health <= 0)
             {
-                Destroy(gameObject);
+                gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+                shootCooldown = shootCooldownMax * 5;
+                StartCoroutine(Continue());
             }
         }
+    }
+
+    public IEnumerator Continue()
+    {
+        yield return new WaitForSeconds(3);
+        WallGrid.SetActive(false);
+        ContinueGrid.SetActive(true);
+        Destroy(gameObject);
     }
 
     private void Shoot()

@@ -17,4 +17,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/level1.unity
     guid: 2fc071d95c729e549adf366231b6a641
+  - enabled: 1
+    path: Assets/Scenes/hallMonitor.unity
+    guid: 41ddd6cbea11d2d429d82001355c50ff
+  - enabled: 1
+    path: Assets/Scenes/level2.unity
+    guid: 14f562eb41dcdf145af6147dfb899407
+  - enabled: 1
+    path: Assets/Scenes/ASBPresident.unity
+    guid: 60141f6052ddf994598baadcac3b9d91
   m_configObjects: {}

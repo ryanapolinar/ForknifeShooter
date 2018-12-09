@@ -31,9 +31,18 @@ public class SceneChange : MonoBehaviour {
                     case "level1":
                         StartCoroutine(ChangeScene("hallMonitor"));
                         break;
-                        //TODO: Add other level transitions
+                    case "hallMonitor":
+                        // @TODO: Transition to Scientist scene for upgrades
+                        StartCoroutine(ChangeScene("level2"));
+                        break;
+                    case "level2":
+                        StartCoroutine(ChangeScene("ASBPresident"));
+                        break;
+                    case "ASBPresident":
+                        // @TODO: Transition to Scientist scene for upgrades
+                        Debug.Log("TODO: Stay tuned for the next episode of Dodgeball Z!");
+                        break;
                 }
-                //ChangeScene();
             }
 
         }
