@@ -1,15 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class SceneChange : MonoBehaviour {
 
     bool triggered = false;
 
+    public Image blackScreen;
+
 	// Use this for initialization
 	void Start () {
         triggered = false;
+        Color blackScreenColor = blackScreen.color;
+        blackScreenColor.a = 1.0f;
+        blackScreen.color = blackScreenColor;
+        blackScreen.CrossFadeAlpha(0.0f, 1.0f, false);
 	}
 	
 	// Update is called once per frame
@@ -26,6 +33,11 @@ public class SceneChange : MonoBehaviour {
             if (!triggered)
             {
                 triggered = true;
+
+                // Fade to black
+                blackScreen.CrossFadeAlpha(1.0f, 1.0f, false);
+
+                // Change the scene
                 switch (currentScene.name)
                 {
                     case "level1":
