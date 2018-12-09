@@ -12,7 +12,9 @@ public class ASBBoss : Enemy
     public int generalCooldown = 0;
     public int generalCooldownMax = 180;
     public int numShot = 0;
-    public int randomNum;
+    public float randomNum;
+    private GameObject player;
+    private Vector2 playerPos;
     Vector2 movementVelocity;
 
     public EnemyProjectile enemyProjectile;
@@ -47,13 +49,13 @@ public class ASBBoss : Enemy
     void FixedUpdate()
     {
         // SHOOT
-        randomNum = Random.Range(0, 2);
-        if (randomNum == 0 && generalCooldown <= 0)
+        randomNum = Random.Range(0.0f, 1.0f);
+        if (randomNum < 0.5f && generalCooldown <= 0)
         {
             Shoot();
         }
 
-        else if (randomNum != 0 && generalCooldown <= 0)
+        else if (randomNum >= 0.5f && generalCooldown <= 0)
         {
             Dash();
         }
@@ -82,6 +84,7 @@ public class ASBBoss : Enemy
                 shootCooldown = 180;
                 numShot = 0;
             }
+            
         }
     }
 
@@ -89,9 +92,11 @@ public class ASBBoss : Enemy
     {
         if (this.PlayerDetected() && dashCooldown <= 0)
         {
+            player = GameObject.Find("Player");
+            playerPos = player.transform.position;
             this.movementVelocity = this.DirectionToPlayer().normalized * 40;
             rb.MovePosition(rb.position + movementVelocity * Time.deltaTime);
-            
+            //rb.MovePosition(playerPos + movementVelocity * Time.deltaTime); // teleports to player
         }
     }
 
