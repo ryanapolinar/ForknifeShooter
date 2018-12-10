@@ -72,7 +72,10 @@ public class HallMonitor : Enemy {
             health -= damage;
             if (health <= 0)
             {
-                gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+                Color fadedColor = gameObject.GetComponent<SpriteRenderer>().color;
+                fadedColor.a = 0.5f;
+                gameObject.GetComponent<SpriteRenderer>().color = fadedColor;
+
                 shootCooldown = shootCooldownMax * 5;
                 StartCoroutine(Continue());
             }

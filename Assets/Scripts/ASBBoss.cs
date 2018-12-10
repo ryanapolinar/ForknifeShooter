@@ -16,6 +16,9 @@ public class ASBBoss : Enemy {
 
     public EnemyProjectile enemyProjectile;
 
+    private Animator animator;
+    private SpriteRenderer spriteRenderer;
+
     public GameObject WallGrid;
     public GameObject ContinueGrid;
 
@@ -30,6 +33,9 @@ public class ASBBoss : Enemy {
         rapidFireCount = 1;
 
         generalCooldown = generalCooldownMax;
+
+        animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
@@ -67,6 +73,10 @@ public class ASBBoss : Enemy {
 
     private void Shoot()
     {
+        if (!isFiring)
+        {
+            animator.SetTrigger("ASBLaw");
+        }
         isFiring = true;
 
         if (shootCooldown <= 0)
@@ -74,6 +84,9 @@ public class ASBBoss : Enemy {
             // Generate a vector from the enemy to the player
             Vector2 randomizer = new Vector2(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f));
             Vector2 projectileVector = (DirectionToPlayer() + randomizer).normalized * enemyProjectile.totalSpeed;
+
+            // Make sure the sprite faces right
+            spriteRenderer.flipX = false;
 
             // Create the enemy projectile
             EnemyProjectile newProjectile = Instantiate(enemyProjectile);
@@ -102,6 +115,16 @@ public class ASBBoss : Enemy {
         Vector2 randomizer = new Vector2(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f));
         Vector2 dashVector = (DirectionToPlayer() + randomizer).normalized * 550;
 
+        // Play animation and face the proper direction
+        animator.SetTrigger("ASBDash");
+        if (dashVector.x > 0)
+        {
+            spriteRenderer.flipX = false;
+        } else
+        {
+            spriteRenderer.flipX = true;
+        }
+
         rb.AddForce(dashVector);
 
         generalCooldown = generalCooldownMax;
@@ -113,7 +136,10 @@ public class ASBBoss : Enemy {
         health -= damage;
         if (health <= 0)
         {
-            gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+            Color fadedColor = gameObject.GetComponent<SpriteRenderer>().color;
+            fadedColor.a = 0.5f;
+            gameObject.GetComponent<SpriteRenderer>().color = fadedColor;
+
             generalCooldown = generalCooldownMax * 5;
             StartCoroutine(Continue());
         }

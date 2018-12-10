@@ -102,7 +102,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 7
   fireCooldownMax: 0.4
-  bigProjectile: 1
+  bigProjectile: 0
+  freezeProjectile: 0
+  spreadShot: 0
   projectile: {fileID: 114994868466086448, guid: d9277bff74242424e9678943d7bdfb0a,
     type: 2}
   healthText: {fileID: 0}
@@ -119,6 +121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementVelocity: {x: 0, y: 0}
   sprites: {fileID: 0}
+  playerProjectile: {fileID: 0}
 --- !u!212 &212438017762512490
 SpriteRenderer:
   m_ObjectHideFlags: 1
