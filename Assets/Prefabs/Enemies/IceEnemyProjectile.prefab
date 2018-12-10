@@ -9,47 +9,47 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1194152736869326}
+  m_RootGameObject: {fileID: 1898611022345514}
   m_IsPrefabAsset: 1
---- !u!1 &1194152736869326
+--- !u!1 &1898611022345514
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4978019627565608}
-  - component: {fileID: 114346202812520512}
-  - component: {fileID: 212770887644426222}
-  - component: {fileID: 50495072820150834}
-  - component: {fileID: 58183036651529990}
+  - component: {fileID: 4718419297373486}
+  - component: {fileID: 114650639570306896}
+  - component: {fileID: 212997647139063236}
+  - component: {fileID: 50700840605189768}
+  - component: {fileID: 58594088197817498}
   m_Layer: 0
-  m_Name: Projectile
-  m_TagString: Projectile
+  m_Name: IceEnemyProjectile
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4978019627565608
+--- !u!4 &4718419297373486
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1194152736869326}
+  m_GameObject: {fileID: 1898611022345514}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 48.45226, y: -19.172998, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &50495072820150834
+--- !u!50 &50700840605189768
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1194152736869326}
+  m_GameObject: {fileID: 1898611022345514}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -63,12 +63,12 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &58183036651529990
+--- !u!58 &58594088197817498
 CircleCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1194152736869326}
+  m_GameObject: {fileID: 1898611022345514}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -78,25 +78,25 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.1
---- !u!114 &114346202812520512
+--- !u!114 &114650639570306896
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1194152736869326}
+  m_GameObject: {fileID: 1898611022345514}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccf35930d93f52047a2f4ec2c23cfd40, type: 3}
+  m_Script: {fileID: 11500000, guid: 390ee6a8da49249498cc483bf0ea9a2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalSpeed: 12
+  totalSpeed: 10
   rb: {fileID: 0}
---- !u!212 &212770887644426222
+--- !u!212 &212997647139063236
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1194152736869326}
+  m_GameObject: {fileID: 1898611022345514}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -127,7 +127,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0.6698113, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.15294117, g: 0.25136486, b: 0.50980395, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

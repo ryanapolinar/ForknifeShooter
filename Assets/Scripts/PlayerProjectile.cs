@@ -2,22 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour {
-    // PROJECTILE FIELDS
-    protected float xSpeed = 0f;
-    protected float ySpeed = 0f;
-    public float totalSpeed = 20f;
-    protected Vector2 movementVelocity;
-    protected int damage;
-
-    // COMPONENTS
-    public Rigidbody2D rb;
-    //public GameObject player;
+public class PlayerProjectile : Projectile
+{
 
     virtual protected void Start()
     {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
         rb = GetComponent<Rigidbody2D>();
         damage = 1;
+        if (player.GetComponent<Player>().bigProjectile)
+        {
+            Debug.Log("bigger");
+            this.transform.localScale += new Vector3(4.0f, 4.0f, 0);
+        }
     }
 
     void Update()
@@ -43,7 +40,7 @@ public class Projectile : MonoBehaviour {
         return this.ySpeed;
     }
 
-    public void setSpeed (float newXSpeed, float newYSpeed)
+    public void setSpeed(float newXSpeed, float newYSpeed)
     {
         this.xSpeed = newXSpeed;
         this.ySpeed = newYSpeed;

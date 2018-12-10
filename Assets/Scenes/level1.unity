@@ -38372,6 +38372,17 @@ Prefab:
       propertyPath: speed
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 114495355200718480, guid: 2fe5d4f9d9eeb924ea4e739e9fc1cf04,
+        type: 2}
+      propertyPath: bigProjectile
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114495355200718480, guid: 2fe5d4f9d9eeb924ea4e739e9fc1cf04,
+        type: 2}
+      propertyPath: projectile
+      value: 
+      objectReference: {fileID: 114994868466086448, guid: d9277bff74242424e9678943d7bdfb0a,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2fe5d4f9d9eeb924ea4e739e9fc1cf04, type: 2}
   m_IsPrefabAsset: 0
