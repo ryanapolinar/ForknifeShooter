@@ -16,6 +16,7 @@ public class Player : Unit {
 
     public bool bigProjectile = false;
     public bool freezeProjectile = false;
+    public bool spreadShot = false;
 
     // COMPONENTS
     PlayerController playerController;

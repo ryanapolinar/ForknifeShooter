@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour {
     public Sprite sprites;
     SpriteRenderer spriteRenderer;
     Rigidbody2D rb;
+    public PlayerProjectile playerProjectile;
     
 	/*
      * Use start to initialize variables
@@ -145,8 +146,32 @@ public class PlayerController : MonoBehaviour {
 
     void CreateProjectile (Projectile projectile, float xSpeed, float ySpeed)
     {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+
+        //projectile at the player
         Projectile newProjectile = Instantiate(projectile);
         newProjectile.transform.position = this.transform.position;
         newProjectile.setSpeed(xSpeed, ySpeed);
+
+        //
+        if (player.GetComponent<Player>().spreadShot)
+        {
+            for (int i = 1; i <= 3; i++)
+            {
+                int angleSpread = 20;
+                Vector2 baseShot = new Vector2(xSpeed, ySpeed);
+                Vector2 positiveSpreadVector = Quaternion.Euler(0, 0, angleSpread * i) * baseShot;
+                Vector2 negativeSpreadVector = Quaternion.Euler(0, 0, angleSpread * -i) * baseShot;
+
+                playerProjectile positiveSpreadShot = Instantiate(playerProjectile);
+                positiveSpreadShot.transform.position = this.transform.position;
+                positiveSpreadShot.setSpeed(positiveSpreadVector.x, positiveSpreadVector.y);
+
+                playerProjectile negativeSpreadShot = Instantiate(playerProjectile);
+                negativeSpreadShot.transform.position = this.transform.position;
+                negativeSpreadShot.setSpeed(negativeSpreadVector.x, negativeSpreadVector.y);
+            }
+        }
+        //*/
     }
 }
