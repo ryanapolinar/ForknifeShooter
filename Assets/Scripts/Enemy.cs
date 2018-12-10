@@ -24,18 +24,11 @@ public class Enemy : Unit {
 	void Update () {
         if (isFrozen)
         {
-            //frozen code
-            while(this.enabled)
-            {
+                //frozen code
                 this.enabled = false; //supposed to freeze
-                rb.constraints = RigidbodyConstraints2D.FreezeAll;
-                Debug.Log("Frozen");
-                Debug.Log(this.enabled);
+                //rb.constraints = RigidbodyConstraints2D.FreezeAll;
                 StartCoroutine(FreezeTimer()); //wait few seconds, remove freeze
-                ///*
-                this.enabled = true;
-                isFrozen = false;
-            }
+                                             
         }
 	}
 
@@ -80,11 +73,9 @@ public class Enemy : Unit {
     {
         Debug.Log("Frozen");
         yield return new WaitForSeconds(2.0f);
-        while (this.enabled == false)
-        {
             this.enabled = true;
             isFrozen = false;
-        }
+            //rb = GetComponent<Rigidbody2D>();
     }
 }
 

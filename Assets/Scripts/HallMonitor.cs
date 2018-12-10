@@ -40,10 +40,8 @@ public class HallMonitor : Enemy {
         if (isFrozen)
         {
             this.enabled = false; //supposed to freeze
-            rb.constraints = RigidbodyConstraints2D.FreezeAll;
             StartCoroutine(FreezeTimer()); //wait few seconds, remove freeze
 
-            rb.constraints = RigidbodyConstraints2D.None;
         }
 
         // Update invincibility
@@ -173,9 +171,13 @@ public class HallMonitor : Enemy {
 
     IEnumerator FreezeTimer()
     {
+        SpriteRenderer m_SpriteRenderer;
+        m_SpriteRenderer = GetComponent<SpriteRenderer>();
+        m_SpriteRenderer.color = Color.blue;
         Debug.Log("Frozen");
         yield return new WaitForSeconds(2.0f);
         this.enabled = true;
         isFrozen = false;
+        m_SpriteRenderer.color = Color.white;
     }
 }

@@ -25,6 +25,13 @@ public class PlayerProjectile : Projectile
             this.damage += 1;
         }
 
+        if(player.GetComponent<Player>().freezeProjectile)
+        {
+            SpriteRenderer m_SpriteRenderer;
+            m_SpriteRenderer = GetComponent<SpriteRenderer>();
+            m_SpriteRenderer.color = Color.blue;
+        }
+
     }
 
     void Update()
