@@ -22,10 +22,17 @@ public class Enemy : Unit {
 	
 	// Update is called once per frame
 	void Update () {
+        Debug.Log("xd");
         if (isFrozen)
         {
             //frozen code
-            StartCoroutine(FreezeTimer()); //wait few seconds, remove freeze
+            while(this.enabled)
+            {
+                this.enabled = false; //supposed to freeze
+                Debug.Log("Frozen");
+                Debug.Log(this.enabled);
+                StartCoroutine(FreezeTimer()); //wait few seconds, remove freeze
+            }
         }
 	}
 
@@ -68,8 +75,13 @@ public class Enemy : Unit {
 
     IEnumerator FreezeTimer()
     {
+        Debug.Log("Frozen");
         yield return new WaitForSeconds(2.0f);
-        isFrozen = false;
+        while (this.enabled == false)
+        {
+            this.enabled = true;
+            isFrozen = false;
+        }
     }
 }
 

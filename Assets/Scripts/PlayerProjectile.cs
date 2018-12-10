@@ -6,12 +6,23 @@ public class PlayerProjectile : Projectile
 {
     virtual protected void Start()
     {
+        this.totalSpeed = 10f;
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         rb = GetComponent<Rigidbody2D>();
         damage = 1;
         if (player.GetComponent<Player>().bigProjectile)
         {
             this.transform.localScale += new Vector3(4.0f, 4.0f, 0);
+        }
+
+        if (player.GetComponent<Player>().fasterProjectile)
+        {
+            this.totalSpeed += 10f;
+        }
+
+        if (player.GetComponent<Player>().moreDamage)
+        {
+            this.damage += 1;
         }
 
     }

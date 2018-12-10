@@ -8,7 +8,7 @@ public class Player : Unit {
 
     public float speed = 7f;
     float fireCooldown;
-    public float fireCooldownMax = 0.25f;
+    public float fireCooldownMax = .75f;
     bool isDead = false;
 
     int invincibility = 0;
@@ -16,7 +16,9 @@ public class Player : Unit {
 
     public bool bigProjectile = false;
     public bool freezeProjectile = false;
+    public bool fasterProjectile = false;
     public bool spreadShot = false;
+    public bool moreDamage = false;
 
     // COMPONENTS
     PlayerController playerController;

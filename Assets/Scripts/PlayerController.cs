@@ -12,7 +12,9 @@ public class PlayerController : MonoBehaviour {
     SpriteRenderer spriteRenderer;
     Rigidbody2D rb;
     public PlayerProjectile playerProjectile;
-    
+    //
+
+    Vector2 DIRECTION;
 	/*
      * Use start to initialize variables
      */
@@ -84,6 +86,7 @@ public class PlayerController : MonoBehaviour {
             Vector2 mouseWorldPosition2d = new Vector2(mouseWorldPosition.x, mouseWorldPosition.y);
             Vector2 playerPosition = new Vector2(this.transform.position.x, this.transform.position.y);
             Vector2 direction = (mouseWorldPosition2d - playerPosition);
+            DIRECTION = direction;
 
             // Change player sprite direction
             if (direction.x > 0)
@@ -148,18 +151,22 @@ public class PlayerController : MonoBehaviour {
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
 
+        //
+        Vector2 projectileVector = DIRECTION.normalized * 8f;
+        //
+
         //projectile at the player
         Projectile newProjectile = Instantiate(projectile);
         newProjectile.transform.position = this.transform.position;
         newProjectile.setSpeed(xSpeed, ySpeed);
 
-        //
+        ///*
         if (player.GetComponent<Player>().spreadShot)
         {
-            for (int i = 1; i <= 3; i++)
+            for (int i = 1; i <= 5; i++)
             {
                 int angleSpread = 20;
-                Vector2 baseShot = new Vector2(xSpeed, ySpeed);
+                Vector2 baseShot = new Vector2(projectileVector.x, projectileVector.y);
                 Vector2 positiveSpreadVector = Quaternion.Euler(0, 0, angleSpread * i) * baseShot;
                 Vector2 negativeSpreadVector = Quaternion.Euler(0, 0, angleSpread * -i) * baseShot;
 
