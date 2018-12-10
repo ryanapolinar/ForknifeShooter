@@ -14,7 +14,7 @@ public class Player : Unit {
     int invincibility = 0;
     int invincibilityFrameMax = 120;
 
-    public bool bigProjectile = true;
+    public bool bigProjectile = false;
 
     // COMPONENTS
     PlayerController playerController;
@@ -52,7 +52,7 @@ public class Player : Unit {
         }
 
         // UI UPDATING
-        healthText.text = "Lives: " + this.getHealth();
+        healthText.text = "" + this.getHealth();
         
     }
 
