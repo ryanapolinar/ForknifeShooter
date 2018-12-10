@@ -6,7 +6,10 @@ public class ShooterEnemy : Enemy
 {
 
     public int shootCooldown = 0;
-    public int shootCooldownMax = 180;
+    public int shootCooldownMax = 9;
+
+    private Animator animator;
+    private SpriteRenderer spriteRenderer;
 
     public EnemyProjectile enemyProjectile;
 
@@ -14,6 +17,9 @@ public class ShooterEnemy : Enemy
     {
         base.Start();
         detectionRadius = 12f;
+
+        animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
@@ -43,9 +49,21 @@ public class ShooterEnemy : Enemy
     {
         if (this.PlayerDetected() && shootCooldown <= 0)
         {
+            animator.SetBool("cheerleaderThrow", true);
+            //animator.Play("cheerleaderThrow", 0, 4.0f / 18.0f);
+
             // Generate a vector from the enemy to the player
             Vector2 randomizer = new Vector2(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f));
             Vector2 projectileVector = (DirectionToPlayer() + randomizer).normalized * enemyProjectile.totalSpeed;
+
+            if (projectileVector.x > 0)
+            {
+                spriteRenderer.flipX = false;
+            }
+            else
+            {
+                spriteRenderer.flipX = true;
+            }
 
             // Create the enemy projectile
             EnemyProjectile newProjectile = Instantiate(enemyProjectile);
@@ -54,6 +72,10 @@ public class ShooterEnemy : Enemy
 
             // Reset the cooldown
             shootCooldown = shootCooldownMax;
+        }
+        else if (!PlayerDetected())
+        {
+            animator.SetBool("cheerleaderThrow", false);
         }
     }
 
