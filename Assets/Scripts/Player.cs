@@ -28,6 +28,7 @@ public class Player : Unit {
         base.Start();
         playerController = GetComponent<PlayerController>();
         fireCooldown = fireCooldownMax;
+        bigProjectile = false;
     }
 	
 	// Update is called once per frame
