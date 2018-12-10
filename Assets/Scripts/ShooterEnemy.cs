@@ -32,6 +32,13 @@ public class ShooterEnemy : Enemy
 
         }
 
+        if (isPoisoned)
+        {
+            SpriteRenderer m_SpriteRenderer;
+            m_SpriteRenderer = GetComponent<SpriteRenderer>();
+            m_SpriteRenderer.color = Color.green;
+        }
+
         // Update shootCoolodown
         if (shootCooldown > 0)
         {

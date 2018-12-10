@@ -25,13 +25,26 @@ public class PlayerProjectile : Projectile
             this.damage += 1;
         }
 
-        if(player.GetComponent<Player>().freezeProjectile)
+        if (player.GetComponent<Player>().freezeProjectile)
         {
             SpriteRenderer m_SpriteRenderer;
             m_SpriteRenderer = GetComponent<SpriteRenderer>();
             m_SpriteRenderer.color = Color.blue;
         }
 
+        if (player.GetComponent<Player>().poisonProjectile)
+        {
+            SpriteRenderer m_SpriteRenderer;
+            m_SpriteRenderer = GetComponent<SpriteRenderer>();
+            m_SpriteRenderer.color = Color.green;
+        }
+
+        if (player.GetComponent<Player>().freezeProjectile && player.GetComponent<Player>().poisonProjectile)
+        {
+            SpriteRenderer m_SpriteRenderer;
+            m_SpriteRenderer = GetComponent<SpriteRenderer>();
+            m_SpriteRenderer.color = Color.black;
+        }
     }
 
     void Update()
@@ -84,11 +97,17 @@ public class PlayerProjectile : Projectile
                 Enemy enemy = collision.gameObject.GetComponent<Enemy>();
                 enemy.Damage(this.damage);
                 Destroy(gameObject);
-                //
                 GameObject player = GameObject.FindGameObjectWithTag("Player");
                 if (player.GetComponent<Player>().freezeProjectile)
                 {
                     enemy.isFrozen = true;
+                }
+
+                if (player.GetComponent<Player>().poisonProjectile)
+                {
+                    StartCoroutine(WaitTimer());
+                    enemy.Damage(1);
+                    enemy.isPoisoned = false;
                 }
                 break;
         }
@@ -99,4 +118,11 @@ public class PlayerProjectile : Projectile
         Destroy(gameObject);
     }
 
+    IEnumerator WaitTimer()
+    {
+        yield return new WaitForSeconds(3.0f);
+        SpriteRenderer m_SpriteRenderer;
+        m_SpriteRenderer = GetComponent<SpriteRenderer>();
+        m_SpriteRenderer.color = Color.white;
+    }
 }

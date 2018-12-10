@@ -11,6 +11,7 @@ public class Enemy : Unit {
 
     protected Rigidbody2D rb;
     public bool isFrozen = false;
+    public bool isPoisoned = false;
     int frozenTimer = 0;
     int frozenTimerMax = 120;
     override protected void Start () {

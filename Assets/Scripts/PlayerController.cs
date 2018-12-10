@@ -163,12 +163,14 @@ public class PlayerController : MonoBehaviour {
         ///*
         if (player.GetComponent<Player>().spreadShot)
         {
-            for (int i = 1; i <= 5; i++)
+            for (int i = 1; i <= 3; i++)
             {
                 int angleSpread = 20;
                 Vector2 baseShot = new Vector2(projectileVector.x, projectileVector.y);
-                Vector2 positiveSpreadVector = Quaternion.Euler(0, 0, angleSpread * i) * baseShot;
-                Vector2 negativeSpreadVector = Quaternion.Euler(0, 0, angleSpread * -i) * baseShot;
+                Vector2 positiveSpreadVector = Quaternion.Euler(0, 0, angleSpread * 2) * baseShot;
+                Vector2 negativeSpreadVector = Quaternion.Euler(0, 0, angleSpread * -2) * baseShot;
+                //Vector2 positiveSpreadVector = Quaternion.Euler(0, 0, angleSpread * i) * baseShot;
+                //Vector2 negativeSpreadVector = Quaternion.Euler(0, 0, angleSpread * -i) * baseShot;
 
                 PlayerProjectile positiveSpreadShot = Instantiate(playerProjectile);
                 positiveSpreadShot.transform.position = this.transform.position;

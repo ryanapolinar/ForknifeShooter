@@ -38,6 +38,13 @@ public class ChaserEnemy : Enemy {
 
         }
 
+        if (isPoisoned)
+        {
+            SpriteRenderer m_SpriteRenderer;
+            m_SpriteRenderer = GetComponent<SpriteRenderer>();
+            m_SpriteRenderer.color = Color.green;
+        }
+
         // Update chaseCooldown
         if (chaseCooldown > 0)
         {

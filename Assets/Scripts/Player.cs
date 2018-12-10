@@ -17,6 +17,7 @@ public class Player : Unit {
     public bool bigProjectile = false;
     public bool freezeProjectile = false;
     public bool fasterProjectile = false;
+    public bool poisonProjectile = false;
     public bool spreadShot = false;
     public bool moreDamage = false;
 
@@ -75,6 +76,7 @@ public class Player : Unit {
         }
 
         // Activate player's invincibility frames
+
         this.setInvincibility(this.invincibilityFrameMax);
 
         // Fade while invincible
