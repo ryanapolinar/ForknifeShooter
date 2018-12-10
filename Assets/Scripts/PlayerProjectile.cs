@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerProjectile : Projectile
 {
-
     virtual protected void Start()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
@@ -12,9 +11,9 @@ public class PlayerProjectile : Projectile
         damage = 1;
         if (player.GetComponent<Player>().bigProjectile)
         {
-            Debug.Log("bigger");
             this.transform.localScale += new Vector3(4.0f, 4.0f, 0);
         }
+
     }
 
     void Update()
@@ -67,6 +66,12 @@ public class PlayerProjectile : Projectile
                 Enemy enemy = collision.gameObject.GetComponent<Enemy>();
                 enemy.Damage(this.damage);
                 Destroy(gameObject);
+                //
+                GameObject player = GameObject.FindGameObjectWithTag("Player");
+                if (player.GetComponent<Player>().freezeProjectile)
+                {
+                    enemy.isFrozen = true;
+                }
                 break;
         }
     }

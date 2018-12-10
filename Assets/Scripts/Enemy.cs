@@ -10,8 +10,9 @@ public class Enemy : Unit {
     bool detected;
 
     protected Rigidbody2D rb;
-    
-
+    public bool isFrozen = false;
+    int frozenTimer = 0;
+    int frozenTimerMax = 120;
     override protected void Start () {
         base.Start();
         rb = GetComponent<Rigidbody2D>();
@@ -21,7 +22,11 @@ public class Enemy : Unit {
 	
 	// Update is called once per frame
 	void Update () {
-        
+        if (isFrozen)
+        {
+            //frozen code
+            StartCoroutine(FreezeTimer()); //wait few seconds, remove freeze
+        }
 	}
 
     virtual protected void OnTriggerEnter2D(Collider2D collision)
@@ -61,4 +66,10 @@ public class Enemy : Unit {
         return detected;
     }
 
+    IEnumerator FreezeTimer()
+    {
+        yield return new WaitForSeconds(2.0f);
+        isFrozen = false;
+    }
 }
+

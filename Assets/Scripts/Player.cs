@@ -14,7 +14,8 @@ public class Player : Unit {
     int invincibility = 0;
     int invincibilityFrameMax = 120;
 
-    public bool bigProjectile = true;
+    public bool bigProjectile = false;
+    public bool freezeProjectile = false;
 
     // COMPONENTS
     PlayerController playerController;
