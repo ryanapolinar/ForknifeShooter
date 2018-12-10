@@ -163,11 +163,11 @@ public class PlayerController : MonoBehaviour {
                 Vector2 positiveSpreadVector = Quaternion.Euler(0, 0, angleSpread * i) * baseShot;
                 Vector2 negativeSpreadVector = Quaternion.Euler(0, 0, angleSpread * -i) * baseShot;
 
-                playerProjectile positiveSpreadShot = Instantiate(playerProjectile);
+                PlayerProjectile positiveSpreadShot = Instantiate(playerProjectile);
                 positiveSpreadShot.transform.position = this.transform.position;
                 positiveSpreadShot.setSpeed(positiveSpreadVector.x, positiveSpreadVector.y);
 
-                playerProjectile negativeSpreadShot = Instantiate(playerProjectile);
+                PlayerProjectile negativeSpreadShot = Instantiate(playerProjectile);
                 negativeSpreadShot.transform.position = this.transform.position;
                 negativeSpreadShot.setSpeed(negativeSpreadVector.x, negativeSpreadVector.y);
             }
