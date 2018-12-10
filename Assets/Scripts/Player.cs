@@ -40,6 +40,8 @@ public class Player : Unit {
 
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+
+        health = 5;
     }
 
     // Update is called once per frame
