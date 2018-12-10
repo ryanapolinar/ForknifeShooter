@@ -38158,7 +38158,7 @@ Prefab:
     - target: {fileID: 114495355200718480, guid: 2fe5d4f9d9eeb924ea4e739e9fc1cf04,
         type: 2}
       propertyPath: bigProjectile
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114495355200718480, guid: 2fe5d4f9d9eeb924ea4e739e9fc1cf04,
         type: 2}
@@ -38174,7 +38174,7 @@ Prefab:
     - target: {fileID: 114495355200718480, guid: 2fe5d4f9d9eeb924ea4e739e9fc1cf04,
         type: 2}
       propertyPath: freezeProjectile
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2fe5d4f9d9eeb924ea4e739e9fc1cf04, type: 2}

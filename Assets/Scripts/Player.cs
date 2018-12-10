@@ -33,6 +33,7 @@ public class Player : Unit {
         playerController = GetComponent<PlayerController>();
         fireCooldown = fireCooldownMax;
         bigProjectile = false;
+        health = 5;
     }
 	
 	// Update is called once per frame
