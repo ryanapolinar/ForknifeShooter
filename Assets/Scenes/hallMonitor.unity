@@ -243,7 +243,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 40, y: -7.4999695}
+  m_AnchoredPosition: {x: 40, y: -7.5}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &32897754
@@ -5193,6 +5193,29 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d71e59eb036f0b9448971d30e0922c87, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &1400221623 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1602600994794290, guid: 6a8bdc70e4711034791b1a5a776efa34,
+    type: 2}
+  m_PrefabInternal: {fileID: 2136031385}
+--- !u!95 &1400221624
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1400221623}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 34f350eb8a1424c4a9ebbfa03b32c376, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1400409436
 Prefab:
   m_ObjectHideFlags: 0
@@ -8065,16 +8088,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
-    - target: {fileID: 114033194929093520, guid: 6a8bdc70e4711034791b1a5a776efa34,
-        type: 2}
-      propertyPath: WallGrid
-      value: 
-      objectReference: {fileID: 520377565}
-    - target: {fileID: 114033194929093520, guid: 6a8bdc70e4711034791b1a5a776efa34,
-        type: 2}
-      propertyPath: ContinueGrid
-      value: 
-      objectReference: {fileID: 858559098}
     - target: {fileID: 212877026961926574, guid: 6a8bdc70e4711034791b1a5a776efa34,
         type: 2}
       propertyPath: m_Sprite
@@ -8121,6 +8134,21 @@ Prefab:
       propertyPath: m_Size.y
       value: 1.7
       objectReference: {fileID: 0}
+    - target: {fileID: 114033194929093520, guid: 6a8bdc70e4711034791b1a5a776efa34,
+        type: 2}
+      propertyPath: invincibilityMax
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 114033194929093520, guid: 6a8bdc70e4711034791b1a5a776efa34,
+        type: 2}
+      propertyPath: WallGrid
+      value: 
+      objectReference: {fileID: 520377565}
+    - target: {fileID: 114033194929093520, guid: 6a8bdc70e4711034791b1a5a776efa34,
+        type: 2}
+      propertyPath: ContinueGrid
+      value: 
+      objectReference: {fileID: 858559098}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a8bdc70e4711034791b1a5a776efa34, type: 2}
   m_IsPrefabAsset: 0

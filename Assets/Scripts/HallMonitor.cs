@@ -9,12 +9,15 @@ public class HallMonitor : Enemy {
 
     public int waveCount;
     public int waveCountMax = 3;
-    public int waveCooldownMax = 30;
+    public int waveCooldownMax = 60;
 
     public int invincibility;
-    public int invincibilityMax = 180;
+    public int invincibilityMax = 22;
 
     public EnemyProjectile enemyProjectile;
+
+    private Animator animator;
+    private SpriteRenderer spriteRenderer;
 
     public GameObject WallGrid;
     public GameObject ContinueGrid;
@@ -25,6 +28,9 @@ public class HallMonitor : Enemy {
         maxHealth = 50;
         waveCount = 1;
         shootCooldown = shootCooldownMax;
+
+        animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
 
         invincibility = 0;
 	}
@@ -92,11 +98,21 @@ public class HallMonitor : Enemy {
 
     private void Shoot()
     {
+        animator.SetTrigger("hallMonitorWhistle");
+        
         invincibility = 0;
 
         // Generate a vector from the enemy to the player
         Vector2 randomizer = new Vector2(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f));
         Vector2 projectileVector = (DirectionToPlayer() + randomizer).normalized * enemyProjectile.totalSpeed;
+
+        if (projectileVector.x > 0)
+        {
+            spriteRenderer.flipX = false;
+        } else
+        {
+            spriteRenderer.flipX = true;
+        }
 
         // Create the projectile towards the player
         EnemyProjectile newProjectile = Instantiate(enemyProjectile);
@@ -119,7 +135,7 @@ public class HallMonitor : Enemy {
             negativeSpreadShot.transform.position = this.transform.position;
             negativeSpreadShot.setSpeed(negativeSpreadVector.x, negativeSpreadVector.y);
         }
-
+        
         // Reset the cooldown
         if (waveCount < waveCountMax)
         {
@@ -134,6 +150,7 @@ public class HallMonitor : Enemy {
 
     private void Shield()
     {
+        animator.SetTrigger("hallMonitorHalt");
         invincibility = invincibilityMax;
 
         // Fade while invincible
@@ -141,6 +158,6 @@ public class HallMonitor : Enemy {
         fadedColor.a = 0.5f;
         gameObject.GetComponent<SpriteRenderer>().color = fadedColor;
 
-        shootCooldown = shootCooldownMax;
+        shootCooldown = invincibilityMax;
     }
 }
