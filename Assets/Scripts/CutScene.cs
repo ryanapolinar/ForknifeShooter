@@ -5,37 +5,38 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class CutScene : MonoBehaviour {
-    public Image image;
-    public Image [] cutsceneImages;
+    public int currentImageIndex = 0;
+    public GameObject [] cutsceneImages;
 	// Use this for initialization
 	void Start () {
-        cutsceneImages[i].enabled = true;
-        //image.enabled = true;
-        image = gameObject.GetComponent<Image>();
+        for (int i = 0; i < cutsceneImages.Length; i++)
+        {
+            cutsceneImages[i].SetActive(false);
+        }
+
+        currentImageIndex = 0;
+        cutsceneImages[0].SetActive(true);
     }
 	
 	// Update is called once per frame
 	void Update () {
-        for (int i = 0; i < cutsceneImages.Length; i++)
+        
+        if (Input.GetKeyUp(KeyCode.Space) || Input.GetKeyUp(KeyCode.Return))
         {
-            if (Input.anyKey)
+            currentImageIndex++;
+            if (currentImageIndex >= cutsceneImages.Length)
             {
-                cutsceneImages[i] = false;
-                cutsceneImages[i + 1] = true;
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            } else
+            {
+                for (int i = 0; i < cutsceneImages.Length; i++)
+                {
+                    cutsceneImages[i].SetActive(false);
+                }
+
+                cutsceneImages[currentImageIndex].SetActive(true);
             }
             
         }
-        if (Input.anyKey)
-            SceneManager.LoadScene("testscene");
     }
-    /* // singular
-    void Upate()
-    {
-        if (Input.anyKey)
-        {
-            image.enabled = false;
-            if (Input.anyKey)
-                SceneManager.LoadScene("testscene");
-        }
-        */
 }

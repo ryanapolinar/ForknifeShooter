@@ -29,40 +29,17 @@ public class SceneChange : MonoBehaviour {
         // Change the scene when player enters
         if (collision.tag == "Player")
         {
-            Scene currentScene = SceneManager.GetActiveScene();
-            if (!triggered)
-            {
-                triggered = true;
+            // Fade to black
+            blackScreen.CrossFadeAlpha(1.0f, 1.0f, false);
 
-                // Fade to black
-                blackScreen.CrossFadeAlpha(1.0f, 1.0f, false);
-
-                // Change the scene
-                switch (currentScene.name)
-                {
-                    case "level1":
-                        StartCoroutine(ChangeScene("hallMonitor"));
-                        break;
-                    case "hallMonitor":
-                        // @TODO: Transition to Scientist scene for upgrades
-                        StartCoroutine(ChangeScene("level2"));
-                        break;
-                    case "level2":
-                        StartCoroutine(ChangeScene("ASBPresident"));
-                        break;
-                    case "ASBPresident":
-                        // @TODO: Transition to Scientist scene for upgrades
-                        Debug.Log("TODO: Stay tuned for the next episode of Dodgeball Z!");
-                        break;
-                }
-            }
-
+            StartCoroutine(ChangeScene());
         }
+        
     }
 
-    public IEnumerator ChangeScene(string sceneName)
+    public IEnumerator ChangeScene()
     {
         yield return new WaitForSeconds(1);
-        SceneManager.LoadScene(sceneName);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Name: Tile Brush
   m_EditorClassIdentifier: 
   m_Prefabs:
-  - {fileID: 1819679286847996, guid: 59554abbef139eb409c3f05eb6dd9f4d, type: 2}
+  - {fileID: 1851293643431024, guid: 5082a911d19902b44b9bf4512309907f, type: 2}
   m_PerlinScale: 0.5
   m_Z: 0

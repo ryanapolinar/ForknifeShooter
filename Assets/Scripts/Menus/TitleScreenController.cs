@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class TitleScreenController : MenuController
 {
@@ -30,7 +31,7 @@ public class TitleScreenController : MenuController
             {
                 case 0:
                     // Start Game: move them to level 1
-                    StartCoroutine(ChangeScene("level1"));
+                    StartCoroutine(ChangeScene("IntroCutscene"));
                     break;
                 case 1:
                     // Quit: exit the application
@@ -44,8 +45,8 @@ public class TitleScreenController : MenuController
     private void UpdateSelector()
     {
         // Reset the colors
-        startGameText.color = Color.white;
-        quitText.color = Color.white;
+        startGameText.color = Color.black;
+        quitText.color = Color.black;
 
         // Highlight the selected option
         switch(this.selection)
