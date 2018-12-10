@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 212438017762512490}
   - component: {fileID: 50451738577148228}
   - component: {fileID: 61373657650576340}
+  - component: {fileID: 95126127136295638}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -38,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1874670933515876}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -80,8 +81,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 2}
-    newSize: {x: 0.2, y: 0.2}
+    oldSize: {x: 2, y: 2}
+    newSize: {x: 2, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -89,6 +90,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.34672475, y: 0.61580753}
   m_EdgeRadius: 0
+--- !u!95 &95126127136295638
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1874670933515876}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 81f89e39ca6beaf439878b73fad9de7c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114495355200718480
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -101,10 +120,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 7
-  fireCooldownMax: 0.4
-  bigProjectile: 0
+  fireCooldownMax: 0.8
+  bigProjectile: 1
   freezeProjectile: 0
+  fasterProjectile: 0
   spreadShot: 0
+  moreDamage: 0
   projectile: {fileID: 114994868466086448, guid: d9277bff74242424e9678943d7bdfb0a,
     type: 2}
   healthText: {fileID: 0}
@@ -120,7 +141,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementVelocity: {x: 0, y: 0}
-  sprites: {fileID: 0}
   playerProjectile: {fileID: 0}
 --- !u!212 &212438017762512490
 SpriteRenderer:
@@ -157,12 +177,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 80b5910cda6930c4aa1e8beb3fa14d1c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 175a01c101ed7694183403efe3e0b5c3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.2, y: 0.2}
+  m_Size: {x: 2, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

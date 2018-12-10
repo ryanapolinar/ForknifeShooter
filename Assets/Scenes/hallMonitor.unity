@@ -7272,6 +7272,53 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4588855004965424, guid: d71e59eb036f0b9448971d30e0922c87,
     type: 2}
   m_PrefabInternal: {fileID: 2123524980}
+--- !u!1001 &1873918681
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4096679538294854, guid: 7b491167950ed5a4eb59c973b9f791d5, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 4.622933
+      objectReference: {fileID: 0}
+    - target: {fileID: 4096679538294854, guid: 7b491167950ed5a4eb59c973b9f791d5, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -2.5067616
+      objectReference: {fileID: 0}
+    - target: {fileID: 4096679538294854, guid: 7b491167950ed5a4eb59c973b9f791d5, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 1.0947623
+      objectReference: {fileID: 0}
+    - target: {fileID: 4096679538294854, guid: 7b491167950ed5a4eb59c973b9f791d5, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4096679538294854, guid: 7b491167950ed5a4eb59c973b9f791d5, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4096679538294854, guid: 7b491167950ed5a4eb59c973b9f791d5, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4096679538294854, guid: 7b491167950ed5a4eb59c973b9f791d5, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4096679538294854, guid: 7b491167950ed5a4eb59c973b9f791d5, type: 2}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 82599735565037946, guid: 7b491167950ed5a4eb59c973b9f791d5,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 54058c24e326c6d4bac28417b61ef132, type: 3}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7b491167950ed5a4eb59c973b9f791d5, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!4 &1890621627 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4588855004965424, guid: d71e59eb036f0b9448971d30e0922c87,

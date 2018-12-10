@@ -6,13 +6,17 @@ using UnityEngine.UI;
 public class TitleScreenController : MenuController
 {
 
-    public Text startGameText, instructionsText, quitText;
+    public Text startGameText, quitText;
+    AudioSource music;
 
     override protected void Start()
     {
         base.Start();
-        this.options = new List<string>() { "Start Game", "Instructions", "Quit" };
+        this.options = new List<string>() { "Start Game", "Quit" };
         UpdateSelector();
+
+        music = GetComponent<AudioSource>();
+        music.Play();
     }
 
     protected override void Update()
@@ -29,10 +33,6 @@ public class TitleScreenController : MenuController
                     StartCoroutine(ChangeScene("level1"));
                     break;
                 case 1:
-                    // Instructions: display the instructions
-                    Debug.Log("TODO: display instructions!");
-                    break;
-                case 2:
                     // Quit: exit the application
                     Application.Quit();
                     break;
@@ -45,7 +45,6 @@ public class TitleScreenController : MenuController
     {
         // Reset the colors
         startGameText.color = Color.white;
-        instructionsText.color = Color.white;
         quitText.color = Color.white;
 
         // Highlight the selected option
@@ -55,9 +54,6 @@ public class TitleScreenController : MenuController
                 startGameText.color = Color.red;
                 break;
             case 1:
-                instructionsText.color = Color.red;
-                break;
-            case 2:
                 quitText.color = Color.red;
                 break;
         }
