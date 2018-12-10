@@ -36,6 +36,16 @@ public class HallMonitor : Enemy {
 	}
 	
 	void Update () {
+        //frozen code
+        if (isFrozen)
+        {
+            this.enabled = false; //supposed to freeze
+            rb.constraints = RigidbodyConstraints2D.FreezeAll;
+            StartCoroutine(FreezeTimer()); //wait few seconds, remove freeze
+
+            rb.constraints = RigidbodyConstraints2D.None;
+        }
+
         // Update invincibility
         if (invincibility > 0)
         {
@@ -159,5 +169,13 @@ public class HallMonitor : Enemy {
         gameObject.GetComponent<SpriteRenderer>().color = fadedColor;
 
         shootCooldown = invincibilityMax;
+    }
+
+    IEnumerator FreezeTimer()
+    {
+        Debug.Log("Frozen");
+        yield return new WaitForSeconds(2.0f);
+        this.enabled = true;
+        isFrozen = false;
     }
 }

@@ -22,16 +22,19 @@ public class Enemy : Unit {
 	
 	// Update is called once per frame
 	void Update () {
-        Debug.Log("xd");
         if (isFrozen)
         {
             //frozen code
             while(this.enabled)
             {
                 this.enabled = false; //supposed to freeze
+                rb.constraints = RigidbodyConstraints2D.FreezeAll;
                 Debug.Log("Frozen");
                 Debug.Log(this.enabled);
                 StartCoroutine(FreezeTimer()); //wait few seconds, remove freeze
+                ///*
+                this.enabled = true;
+                isFrozen = false;
             }
         }
 	}

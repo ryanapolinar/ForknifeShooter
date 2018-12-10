@@ -30,6 +30,16 @@ public class ChaserEnemy : Enemy {
 
     private void Update()
     {
+        //frozen code
+        if (isFrozen)
+        {
+            this.enabled = false; //supposed to freeze
+            rb.constraints = RigidbodyConstraints2D.FreezeAll;
+            StartCoroutine(FreezeTimer()); //wait few seconds, remove freeze
+
+            rb.constraints = RigidbodyConstraints2D.None;
+        }
+
         // Update chaseCooldown
         if (chaseCooldown > 0)
         {
@@ -102,6 +112,14 @@ public class ChaserEnemy : Enemy {
             // Reset the cooldown
             shootCooldown = shootCooldownMax;
         }
+    }
+
+    IEnumerator FreezeTimer()
+    {
+        Debug.Log("Frozen");
+        yield return new WaitForSeconds(2.0f);
+        this.enabled = true;
+        isFrozen = false;
     }
 
 }
