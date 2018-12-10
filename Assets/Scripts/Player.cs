@@ -29,6 +29,7 @@ public class Player : Unit {
         base.Start();
         playerController = GetComponent<PlayerController>();
         fireCooldown = fireCooldownMax;
+        bigProjectile = false;
     }
 	
 	// Update is called once per frame
@@ -53,7 +54,7 @@ public class Player : Unit {
         }
 
         // UI UPDATING
-        healthText.text = "Lives: " + this.getHealth();
+        healthText.text = "" + this.getHealth();
         
     }
 

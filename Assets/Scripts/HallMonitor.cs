@@ -21,8 +21,8 @@ public class HallMonitor : Enemy {
 
     protected override void Start () {
         base.Start();
-        health = 30;
-        maxHealth = 30;
+        health = 50;
+        maxHealth = 50;
         waveCount = 1;
         shootCooldown = shootCooldownMax;
 
@@ -53,7 +53,7 @@ public class HallMonitor : Enemy {
         if (shootCooldown <= 0)
         {
             float action = Random.Range(0.0f, 1.0f);
-            if (action <= 0.75f)
+            if (action <= 0.8f)
             {
                 Shoot();
             } else
@@ -95,14 +95,10 @@ public class HallMonitor : Enemy {
         Vector2 randomizer = new Vector2(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f));
         Vector2 projectileVector = (DirectionToPlayer() + randomizer).normalized * enemyProjectile.totalSpeed;
 
-        Vector2 test = new Vector2(projectileVector.x, projectileVector.y);
-        test = Quaternion.Euler(0, 0, -45) * test;
-
         // Create the projectile towards the player
         EnemyProjectile newProjectile = Instantiate(enemyProjectile);
         newProjectile.transform.position = this.transform.position;
         newProjectile.setSpeed(projectileVector.x, projectileVector.y);
-
 
         // Create the spread shot
         for (int i = 1; i <= 3; i++)

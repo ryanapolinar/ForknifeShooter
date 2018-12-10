@@ -2,70 +2,74 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ASBBoss : Enemy
-{
+public class ASBBoss : Enemy {
 
     public int shootCooldown = 0;
-    public int shootCooldownMax = 10;
-    public int dashCooldown = 0;
-    public int dashCooldownMax = 180;
+
+    public int rapidFireCount = 1;
+    public int rapidFireCountMax = 5;
+    public int rapidFireCooldownMax = 5;
+    public bool isFiring = false;
+
     public int generalCooldown = 0;
-    public int generalCooldownMax = 300;
-    public int numShot = 0;
-    public float randomNum;
-    private GameObject player;
-    private Vector2 playerPos;
-    Vector2 movementVelocity;
+    public int generalCooldownMax = 120;
 
     public EnemyProjectile enemyProjectile;
+
+    public GameObject WallGrid;
+    public GameObject ContinueGrid;
 
     protected override void Start()
     {
         base.Start();
-        detectionRadius = 10f;
-        health = 30;
-        maxHealth = 30;
+
+        health = 100 * 2;
+        maxHealth = 100 * 2;
+
+        isFiring = false;
+        rapidFireCount = 1;
+
+        generalCooldown = generalCooldownMax;
     }
 
     private void Update()
     {
-        // Update shootCoolodown
-        if (shootCooldown > 0)
-        {
-            shootCooldown--;
-        }
-        // Update dashCooldown
-        if (dashCooldown > 0)
-        {
-            dashCooldown--;
-        }
-
-        if (generalCooldown > 0)
+        // Update generalCooldown
+        if (generalCooldown > 0 && !isFiring)
         {
             generalCooldown--;
         }
+
+        // Update shootCoolodown
+        if (shootCooldown > 0 && isFiring)
+        {
+            shootCooldown--;
+        }
+        
     }
 
     void FixedUpdate()
     {
-        // SHOOT
-        randomNum = Random.Range(0.0f, 1.0f);
-        if (randomNum < 0.5f && generalCooldown <= 0)
+        // Basic AI and move selection
+        if (generalCooldown == 0)
         {
-            Shoot();
-           //generalCooldown = generalCooldownMax; //makes the shot only shoot once
-        }
-
-        else if (randomNum >= 0.5f && generalCooldown <= 0)
-        {
-            Dash();
-            //generalCooldown = generalCooldownMax; //makes the dash stop early (short)
+            float action = Random.Range(0.0f, 1.0f);
+            if (action < 0.5f || isFiring)
+            {
+                Shoot();
+            }
+            else if (action >= 0.5f)
+            {
+                Dash();
+            }
         }
     }
 
     private void Shoot()
     {
-        if (this.PlayerDetected() && shootCooldown <= 0)
+        isFiring = true;
+
+        if (shootCooldown <= 0)
         {
             // Generate a vector from the enemy to the player
             Vector2 randomizer = new Vector2(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f));
@@ -73,43 +77,53 @@ public class ASBBoss : Enemy
 
             // Create the enemy projectile
             EnemyProjectile newProjectile = Instantiate(enemyProjectile);
+            newProjectile.totalSpeed = 20;
             newProjectile.transform.position = this.transform.position;
             newProjectile.setSpeed(projectileVector.x, projectileVector.y);
 
-
             // Reset the cooldown
-            shootCooldown = shootCooldownMax;
-            numShot++;
-
-            if(numShot >= 3)
+            if (rapidFireCount < rapidFireCountMax)
             {
-                shootCooldown = 180;
-                numShot = 0;
+                shootCooldown = rapidFireCooldownMax;
+                rapidFireCount++;
             }
-            
+            else
+            {
+                shootCooldown = 0;
+                rapidFireCount = 1;
+                isFiring = false;
+                generalCooldown = generalCooldownMax;
+            }
         }
     }
 
     private void Dash()
     {
-        if (this.PlayerDetected() && dashCooldown <= 0)
+        Vector2 randomizer = new Vector2(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f));
+        Vector2 dashVector = (DirectionToPlayer() + randomizer).normalized * 550;
+
+        rb.AddForce(dashVector);
+
+        generalCooldown = generalCooldownMax;
+
+    }
+
+    public override void Damage(int damage)
+    {
+        health -= damage;
+        if (health <= 0)
         {
-            player = GameObject.Find("Player");
-            playerPos = player.transform.position;
-            this.movementVelocity = this.DirectionToPlayer().normalized * 40;
-            rb.MovePosition(rb.position + movementVelocity * Time.deltaTime);
-            //rb.MovePosition(playerPos + movementVelocity * Time.deltaTime); // teleports to player
+            gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+            generalCooldown = generalCooldownMax * 5;
+            StartCoroutine(Continue());
         }
     }
 
-    override protected void OnTriggerEnter2D(Collider2D collision)
+    public IEnumerator Continue()
     {
-        // Damage player and reset chaseCooldown
-
-        if (collision.tag == "Player")
-        {
-            base.OnTriggerEnter2D(collision);
-            dashCooldown = dashCooldownMax;
-        }
+        yield return new WaitForSeconds(3);
+        WallGrid.SetActive(false);
+        ContinueGrid.SetActive(true);
+        Destroy(gameObject);
     }
 }
