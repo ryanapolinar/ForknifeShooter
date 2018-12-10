@@ -33,11 +33,17 @@ public class ChaserEnemy : Enemy {
         //frozen code
         if (isFrozen)
         {
+            //m_Blue = GUI.HorizontalSlider(new Rect(35, 95, 200, 30), m_Blue, 0, 1);
+            SpriteRenderer m_SpriteRenderer;
+            m_SpriteRenderer = GetComponent<SpriteRenderer>();
+            m_SpriteRenderer.color = Color.blue;
+
             this.enabled = false; //supposed to freeze
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
             StartCoroutine(FreezeTimer()); //wait few seconds, remove freeze
 
             rb.constraints = RigidbodyConstraints2D.None;
+            m_SpriteRenderer.color = Color.clear;
         }
 
         // Update chaseCooldown
