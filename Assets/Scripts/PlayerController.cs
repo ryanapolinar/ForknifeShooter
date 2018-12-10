@@ -8,19 +8,14 @@ public class PlayerController : MonoBehaviour {
     public Vector2 movementVelocity;
 
     // PLAYERCONTROLLER COMPONENTS
-    public Sprite sprites;
-    SpriteRenderer spriteRenderer;
     Rigidbody2D rb;
     public PlayerProjectile playerProjectile;
-    //
 
     Vector2 DIRECTION;
 	/*
      * Use start to initialize variables
      */
 	void Start () {
-
-        spriteRenderer = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -36,7 +31,7 @@ public class PlayerController : MonoBehaviour {
     /**
      * Gets the movement velocity of the player and stores it in movementVelocity
      */
-    public void GetMovementVelocity (float speed)
+    public Vector2 GetMovementVelocity (float speed)
     {
         // MOVEMENT
         // Get the movement inputs, making sure they are using WASD
@@ -62,6 +57,8 @@ public class PlayerController : MonoBehaviour {
         // Set the velocity 
         movementVelocity = new Vector2(horizontalInput, verticalInput);
         movementVelocity = movementVelocity.normalized * speed;
+
+        return movementVelocity;
     }
 
     /**
@@ -80,22 +77,13 @@ public class PlayerController : MonoBehaviour {
 
         // FIRE PROJECTILES WITH THE MOUSE
         // Get the mouse click input
-        bool mouseInput = Input.GetMouseButton(0) && fireCooldown <= 0.0f;
-        if (mouseInput) {
+        bool mouseInput = Input.GetMouseButton(0);
+        if (mouseInput && fireCooldown <= 0.0f) {
             Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 mouseWorldPosition2d = new Vector2(mouseWorldPosition.x, mouseWorldPosition.y);
             Vector2 playerPosition = new Vector2(this.transform.position.x, this.transform.position.y);
             Vector2 direction = (mouseWorldPosition2d - playerPosition);
             DIRECTION = direction;
-
-            // Change player sprite direction
-            if (direction.x > 0)
-            {
-                spriteRenderer.flipX = false;
-            } else
-            {
-                spriteRenderer.flipX = true;
-            }
 
             // Fire the projectile
             CreateProjectile(projectile, direction.x, direction.y);
@@ -105,40 +93,38 @@ public class PlayerController : MonoBehaviour {
 
         // FIRE PROJECTILES WITH THE ARROW KEYS
         // Get the firing inputs, making sure they use the arrow keys
-        bool fireUpInput = Input.GetKey(KeyCode.UpArrow) && fireCooldown <= 0.0f;
-        bool fireRightInput = Input.GetKey(KeyCode.RightArrow) && fireCooldown <= 0.0f;
-        bool fireDownInput = Input.GetKey(KeyCode.DownArrow) && fireCooldown <= 0.0f;
-        bool fireLeftInput = Input.GetKey(KeyCode.LeftArrow) && fireCooldown <= 0.0f;
+        bool fireUpInput = Input.GetKey(KeyCode.UpArrow);
+        bool fireRightInput = Input.GetKey(KeyCode.RightArrow);
+        bool fireDownInput = Input.GetKey(KeyCode.DownArrow);
+        bool fireLeftInput = Input.GetKey(KeyCode.LeftArrow);
 
         // Instantiate projectile based on input
         float xSpeed = 0f;
         float ySpeed = 0f;
-        if (fireUpInput)
+        if (fireUpInput && fireCooldown <= 0.0f)
         {
             // FIRE UP
             ySpeed = 1f;
             CreateProjectile(projectile, xSpeed, ySpeed);
             fireCooldown = fireCooldownMax;
         }
-        else if (fireRightInput)
+        else if (fireRightInput && fireCooldown <= 0.0f)
         {
             // FIRE RIGHT
-            spriteRenderer.flipX = false;
             xSpeed = 1f;
             CreateProjectile(projectile, xSpeed, ySpeed);
             fireCooldown = fireCooldownMax;
         }
-        else if (fireDownInput)
+        else if (fireDownInput && fireCooldown <= 0.0f)
         {
             // FIRE DOWN
             ySpeed = -1f;
             CreateProjectile(projectile, xSpeed, ySpeed);
             fireCooldown = fireCooldownMax;
         }
-        else if (fireLeftInput)
+        else if (fireLeftInput && fireCooldown <= 0.0f)
         {
             // FIRE LEFT
-            spriteRenderer.flipX = true;
             xSpeed = -1f;
             CreateProjectile(projectile, xSpeed, ySpeed);
             fireCooldown = fireCooldownMax;
@@ -182,5 +168,27 @@ public class PlayerController : MonoBehaviour {
             }
         }
         //*/
+    }
+
+    public bool isFiring()
+    {
+        bool mouseInput = Input.GetMouseButton(0);
+        bool fireUpInput = Input.GetKey(KeyCode.UpArrow);
+        bool fireRightInput = Input.GetKey(KeyCode.RightArrow);
+        bool fireDownInput = Input.GetKey(KeyCode.DownArrow);
+        bool fireLeftInput = Input.GetKey(KeyCode.LeftArrow);
+
+        return mouseInput || fireUpInput || fireRightInput || fireDownInput || fireLeftInput;
+    }
+
+    public bool facingRight()
+    {
+        if (DIRECTION.x > 0)
+        {
+            return true;
+        } else
+        {
+            return false;
+        }
     }
 }
