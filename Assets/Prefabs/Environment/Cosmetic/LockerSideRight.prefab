@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4730401153912682}
   - component: {fileID: 212476376174348818}
+  - component: {fileID: 61934287023473434}
   m_Layer: 0
   m_Name: LockerSideRight
   m_TagString: Untagged
@@ -40,6 +41,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &61934287023473434
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1989967676677598}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.1, y: 0.5}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.25}
+    oldSize: {x: 1, y: 2.25}
+    newSize: {x: 1, y: 2.25}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.75, y: 2}
+  m_EdgeRadius: 0
 --- !u!212 &212476376174348818
 SpriteRenderer:
   m_ObjectHideFlags: 1
