@@ -1,25 +1,57 @@
 fileFormatVersion: 2
 guid: 5a29381cd42cfd34e92c20ff595d4f87
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: HallMonitorWhistle_0
-    21300002: HallMonitorWhistle_1
-    21300004: HallMonitorWhistle_2
-    21300006: HallMonitorWhistle_3
-    21300008: HallMonitorWhistle_4
-    21300010: HallMonitorWhistle_5
-    21300012: HallMonitorWhistle_6
-    21300014: HallMonitorWhistle_7
-    21300016: HallMonitorWhistle_8
-    21300018: HallMonitorWhistle_9
-    21300020: HallMonitorWhistle_10
-    21300022: HallMonitorWhistle_11
-    21300024: HallMonitorWhistle_12
-    21300026: HallMonitorWhistle_13
-    21300028: HallMonitorWhistle_14
-    21300030: HallMonitorWhistle_15
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: HallMonitorWhistle_0
+  - first:
+      213: 21300002
+    second: HallMonitorWhistle_1
+  - first:
+      213: 21300004
+    second: HallMonitorWhistle_2
+  - first:
+      213: 21300006
+    second: HallMonitorWhistle_3
+  - first:
+      213: 21300008
+    second: HallMonitorWhistle_4
+  - first:
+      213: 21300010
+    second: HallMonitorWhistle_5
+  - first:
+      213: 21300012
+    second: HallMonitorWhistle_6
+  - first:
+      213: 21300014
+    second: HallMonitorWhistle_7
+  - first:
+      213: 21300016
+    second: HallMonitorWhistle_8
+  - first:
+      213: 21300018
+    second: HallMonitorWhistle_9
+  - first:
+      213: 21300020
+    second: HallMonitorWhistle_10
+  - first:
+      213: 21300022
+    second: HallMonitorWhistle_11
+  - first:
+      213: 21300024
+    second: HallMonitorWhistle_12
+  - first:
+      213: 21300026
+    second: HallMonitorWhistle_13
+  - first:
+      213: 21300028
+    second: HallMonitorWhistle_14
+  - first:
+      213: 21300030
+    second: HallMonitorWhistle_15
   externalObjects: {}
-  serializedVersion: 7
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -39,6 +71,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -48,8 +82,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -70,11 +104,16 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
+  cookieLightType: 1
   platformSettings:
-  - serializedVersion: 2
+  - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -85,7 +124,8 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -96,7 +136,8 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
     buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -107,6 +148,31 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -126,6 +192,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 758497792f21cd74cb5cf891b021ef9b
+      internalID: 21300000
       vertices: []
       indices: 
       edges: []
@@ -146,6 +213,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: a553d1c4afb95e54fa025edf8b44dcfc
+      internalID: 21300002
       vertices: []
       indices: 
       edges: []
@@ -166,6 +234,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: de1f9dc16c8a0bd4f91b4d895166d8cd
+      internalID: 21300004
       vertices: []
       indices: 
       edges: []
@@ -186,6 +255,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 3308157682d63ab40a01aa222aff9058
+      internalID: 21300006
       vertices: []
       indices: 
       edges: []
@@ -206,6 +276,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 049ffaa827b4d314387b96d81685e9e4
+      internalID: 21300008
       vertices: []
       indices: 
       edges: []
@@ -226,6 +297,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: c5c16d7003fdd674c9acd572b7447d1d
+      internalID: 21300010
       vertices: []
       indices: 
       edges: []
@@ -246,6 +318,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: e309acbc8ddf9254b9edad591b41f917
+      internalID: 21300012
       vertices: []
       indices: 
       edges: []
@@ -266,6 +339,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 0cf9b648cec0cd147b6512c9fdd4f99d
+      internalID: 21300014
       vertices: []
       indices: 
       edges: []
@@ -286,6 +360,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: cb4f2d42dfe3b4b42bbc708212d4bc82
+      internalID: 21300016
       vertices: []
       indices: 
       edges: []
@@ -306,6 +381,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 29e17037de2950045915633f16b3cc4c
+      internalID: 21300018
       vertices: []
       indices: 
       edges: []
@@ -326,6 +402,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 39243938795d12f4a8cf64718c8bd87e
+      internalID: 21300020
       vertices: []
       indices: 
       edges: []
@@ -346,6 +423,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: e36bb2dad675956409c6459c0549bd00
+      internalID: 21300022
       vertices: []
       indices: 
       edges: []
@@ -366,6 +444,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 6dd9f59a5e7ae73439905642e85e73ad
+      internalID: 21300024
       vertices: []
       indices: 
       edges: []
@@ -386,6 +465,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: ea50fc008d6a61242bef17128d1fedc4
+      internalID: 21300026
       vertices: []
       indices: 
       edges: []
@@ -406,6 +486,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: d8ea3a5a2dd21ed47be6629bf56a7b9e
+      internalID: 21300028
       vertices: []
       indices: 
       edges: []
@@ -426,6 +507,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: a3870b4f6c9c8cc418a07160b4aa1754
+      internalID: 21300030
       vertices: []
       indices: 
       edges: []
@@ -434,10 +516,29 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 4a5800b9cc9b6be42a1b905561bb6e30
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      HallMonitorWhistle_0: 21300000
+      HallMonitorWhistle_1: 21300002
+      HallMonitorWhistle_10: 21300020
+      HallMonitorWhistle_11: 21300022
+      HallMonitorWhistle_12: 21300024
+      HallMonitorWhistle_13: 21300026
+      HallMonitorWhistle_14: 21300028
+      HallMonitorWhistle_15: 21300030
+      HallMonitorWhistle_2: 21300004
+      HallMonitorWhistle_3: 21300006
+      HallMonitorWhistle_4: 21300008
+      HallMonitorWhistle_5: 21300010
+      HallMonitorWhistle_6: 21300012
+      HallMonitorWhistle_7: 21300014
+      HallMonitorWhistle_8: 21300016
+      HallMonitorWhistle_9: 21300018
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

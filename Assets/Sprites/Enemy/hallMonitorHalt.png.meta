@@ -1,31 +1,75 @@
 fileFormatVersion: 2
 guid: 169fc563c5c40b54892014f15414d88f
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: hallMonitorHalt_0
-    21300002: hallMonitorHalt_1
-    21300004: hallMonitorHalt_2
-    21300006: hallMonitorHalt_3
-    21300008: hallMonitorHalt_4
-    21300010: hallMonitorHalt_5
-    21300012: hallMonitorHalt_6
-    21300014: hallMonitorHalt_7
-    21300016: hallMonitorHalt_8
-    21300018: hallMonitorHalt_9
-    21300020: hallMonitorHalt_10
-    21300022: hallMonitorHalt_11
-    21300024: hallMonitorHalt_12
-    21300026: hallMonitorHalt_13
-    21300028: hallMonitorHalt_14
-    21300030: hallMonitorHalt_15
-    21300032: hallMonitorHalt_16
-    21300034: hallMonitorHalt_17
-    21300036: hallMonitorHalt_18
-    21300038: hallMonitorHalt_19
-    21300040: hallMonitorHalt_20
-    21300042: hallMonitorHalt_21
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: hallMonitorHalt_0
+  - first:
+      213: 21300002
+    second: hallMonitorHalt_1
+  - first:
+      213: 21300004
+    second: hallMonitorHalt_2
+  - first:
+      213: 21300006
+    second: hallMonitorHalt_3
+  - first:
+      213: 21300008
+    second: hallMonitorHalt_4
+  - first:
+      213: 21300010
+    second: hallMonitorHalt_5
+  - first:
+      213: 21300012
+    second: hallMonitorHalt_6
+  - first:
+      213: 21300014
+    second: hallMonitorHalt_7
+  - first:
+      213: 21300016
+    second: hallMonitorHalt_8
+  - first:
+      213: 21300018
+    second: hallMonitorHalt_9
+  - first:
+      213: 21300020
+    second: hallMonitorHalt_10
+  - first:
+      213: 21300022
+    second: hallMonitorHalt_11
+  - first:
+      213: 21300024
+    second: hallMonitorHalt_12
+  - first:
+      213: 21300026
+    second: hallMonitorHalt_13
+  - first:
+      213: 21300028
+    second: hallMonitorHalt_14
+  - first:
+      213: 21300030
+    second: hallMonitorHalt_15
+  - first:
+      213: 21300032
+    second: hallMonitorHalt_16
+  - first:
+      213: 21300034
+    second: hallMonitorHalt_17
+  - first:
+      213: 21300036
+    second: hallMonitorHalt_18
+  - first:
+      213: 21300038
+    second: hallMonitorHalt_19
+  - first:
+      213: 21300040
+    second: hallMonitorHalt_20
+  - first:
+      213: 21300042
+    second: hallMonitorHalt_21
   externalObjects: {}
-  serializedVersion: 7
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -45,6 +89,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -54,8 +100,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -76,11 +122,16 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
+  cookieLightType: 1
   platformSettings:
-  - serializedVersion: 2
+  - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -91,7 +142,8 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -102,7 +154,8 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
     buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -113,6 +166,31 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -132,6 +210,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 3e3f4dd91d66b2a4bad9db3d8e928560
+      internalID: 21300000
       vertices: []
       indices: 
       edges: []
@@ -152,6 +231,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 90aed3947d0397e498ae40e989da3bc1
+      internalID: 21300002
       vertices: []
       indices: 
       edges: []
@@ -172,6 +252,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 128cf96a7cab22442ac54609a974709e
+      internalID: 21300004
       vertices: []
       indices: 
       edges: []
@@ -192,6 +273,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 9a7ea407e32dea84a9b4c0335e12b22e
+      internalID: 21300006
       vertices: []
       indices: 
       edges: []
@@ -212,6 +294,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: fb8e0117ad90cc041aebe95ab1e82730
+      internalID: 21300008
       vertices: []
       indices: 
       edges: []
@@ -232,6 +315,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 8803ea0644ad5f246bb353cac7228be3
+      internalID: 21300010
       vertices: []
       indices: 
       edges: []
@@ -252,6 +336,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: b85af45a48b104349977180ec24ce92d
+      internalID: 21300012
       vertices: []
       indices: 
       edges: []
@@ -272,6 +357,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: fb0e0f2ffc8b2794a867e8c7cd4a02c4
+      internalID: 21300014
       vertices: []
       indices: 
       edges: []
@@ -292,6 +378,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 8f48ec2eafd7bcf49a2542fbbfb7b858
+      internalID: 21300016
       vertices: []
       indices: 
       edges: []
@@ -312,6 +399,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 2c5a064f1226e2d43bd62db544a8d826
+      internalID: 21300018
       vertices: []
       indices: 
       edges: []
@@ -332,6 +420,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 5f652bf7f3a1a9e45884bfeb5d9f0307
+      internalID: 21300020
       vertices: []
       indices: 
       edges: []
@@ -352,6 +441,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 175dd170fdb538941a0433a1378552fa
+      internalID: 21300022
       vertices: []
       indices: 
       edges: []
@@ -372,6 +462,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: ed54479db2b20ac44b7bbfe13d4b0193
+      internalID: 21300024
       vertices: []
       indices: 
       edges: []
@@ -392,6 +483,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 31aef89581a543b429b273ebebba12b2
+      internalID: 21300026
       vertices: []
       indices: 
       edges: []
@@ -412,6 +504,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 814abca5d8f823a4eb7419830429360b
+      internalID: 21300028
       vertices: []
       indices: 
       edges: []
@@ -432,6 +525,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: c5da54d8a85d724489fa12ee35ecb72c
+      internalID: 21300030
       vertices: []
       indices: 
       edges: []
@@ -452,6 +546,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 04589564657353a42a707f2ae75d1827
+      internalID: 21300032
       vertices: []
       indices: 
       edges: []
@@ -472,6 +567,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 7655caa8b9c48f6499d7b801a1b2400d
+      internalID: 21300034
       vertices: []
       indices: 
       edges: []
@@ -492,6 +588,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 59afc0e5861fff94991f07fe72efbd14
+      internalID: 21300036
       vertices: []
       indices: 
       edges: []
@@ -512,6 +609,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 33162aad0608ce241b1624dcf56b8c15
+      internalID: 21300038
       vertices: []
       indices: 
       edges: []
@@ -532,6 +630,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: f88e71d7704f96b4390ba86fd9069d2e
+      internalID: 21300040
       vertices: []
       indices: 
       edges: []
@@ -552,6 +651,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 6555a4cfcfbc76541b6ade8b733b30c7
+      internalID: 21300042
       vertices: []
       indices: 
       edges: []
@@ -560,10 +660,35 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 7db1bebc2c41e7c4fb5b0da5e308f62a
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      hallMonitorHalt_0: 21300000
+      hallMonitorHalt_1: 21300002
+      hallMonitorHalt_10: 21300020
+      hallMonitorHalt_11: 21300022
+      hallMonitorHalt_12: 21300024
+      hallMonitorHalt_13: 21300026
+      hallMonitorHalt_14: 21300028
+      hallMonitorHalt_15: 21300030
+      hallMonitorHalt_16: 21300032
+      hallMonitorHalt_17: 21300034
+      hallMonitorHalt_18: 21300036
+      hallMonitorHalt_19: 21300038
+      hallMonitorHalt_2: 21300004
+      hallMonitorHalt_20: 21300040
+      hallMonitorHalt_21: 21300042
+      hallMonitorHalt_3: 21300006
+      hallMonitorHalt_4: 21300008
+      hallMonitorHalt_5: 21300010
+      hallMonitorHalt_6: 21300012
+      hallMonitorHalt_7: 21300014
+      hallMonitorHalt_8: 21300016
+      hallMonitorHalt_9: 21300018
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
